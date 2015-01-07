@@ -34,7 +34,8 @@
  *
  * R-PI 3V3 PIC32MX250F128B
  *
- * LED blinker based on the PIC32 starter kits users guide example 3-1.
+ * LED blinky which is no longer anything like the PIC32 starter kits users
+ * guide example 3-1.
  *
  * This demo requires the chipKIT Pi MX270 boot loader at 48 MHz
  *
@@ -64,7 +65,7 @@
  *
  * Program
  * --------
- * kload program /dev/ttyAMA0 led.hex avr
+ * kload program /dev/ttyAMA0 led.hex 24
  *
  ******************************************************************************/
 
