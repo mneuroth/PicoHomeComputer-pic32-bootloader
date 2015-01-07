@@ -65,7 +65,7 @@ ELF     = $(TARGET:.hex=.elf)
 MAP     = $(TARGET:.hex=.map)
 
 CFLAGS  = -Os -mprocessor=$(CPU) -std=gnu99 -pedantic-errors -Wall -g -fno-short-double -fverbose-asm -save-temps
-CFLAGS += -mno-smart-io -ffunction-sections -fdata-sections -mdebugger -Wcast-align -fframe-base-loclist -I../../include
+CFLAGS += -mno-smart-io -ffunction-sections -fdata-sections -mdebugger -Wcast-align -fframe-base-loclist -I.
 CLINK   = -Wl,-TchipKIT-application-32MX270F256.ld,-TchipKIT-application-COMMON.ld,-Map=$(MAP),--gc-sections -mno-peripheral-libs
 
 build:$(TARGET)
