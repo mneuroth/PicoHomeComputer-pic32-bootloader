@@ -114,7 +114,7 @@ SECTIONS
   {
     *(.stub .gnu.linkonce.t.*)
     KEEP (*(EXCLUDE_FILE (*cdcacm.o *usb.o).text.*personality*))
-    KEEP (*(EXCLUDE_FILE (*main.o *usb.o).text.flash*))
+    KEEP (*(EXCLUDE_FILE (*main.o).text.flash*))
     *(.mips16.fn.*)
     *(.mips16.call.*)
     *(.gnu.warning)
