@@ -37,6 +37,7 @@ MEMORY
   kseg1_boot_mem             : ORIGIN = 0xBFC00000, LENGTH = 0x0130
   kseg0_program_mem    (rx)  : ORIGIN = 0x9FC00130, LENGTH = 0xAC0
   kseg0_boot_mem             : ORIGIN = 0x9FC00130, LENGTH = 0x0
+  split_program_mem    (rx)  : ORIGIN = 0x9D01F000, LENGTH = 0x1000
   exception_mem              : ORIGIN = 0x9FC00480, LENGTH = 0x0
   debug_exec_mem             : ORIGIN = 0x9FC00490, LENGTH = 0x0
   /* debug_exec_mem             : ORIGIN = 0x9FC00490, LENGTH = 0x760 */
@@ -102,10 +103,18 @@ SECTIONS
   ** locates them, so that .text may flow around absolute sections
   ** as needed.
   */
-  .text :
+  .splittext ORIGIN(split_program_mem):
+  {
+    KEEP (*cdcacm.o(.text.*))
+    KEEP (*usb.o(.text.*))
+    KEEP (*main.o(.text.flash*))
+  } >split_program_mem
+
+  .text ORIGIN(kseg0_program_mem) :
   {
     *(.stub .gnu.linkonce.t.*)
-    KEEP (*(.text.*personality*))
+    KEEP (*(EXCLUDE_FILE (*cdcacm.o *usb.o).text.*personality*))
+    KEEP (*(EXCLUDE_FILE (*main.o *usb.o).text.flash*))
     *(.mips16.fn.*)
     *(.mips16.call.*)
     *(.gnu.warning)
