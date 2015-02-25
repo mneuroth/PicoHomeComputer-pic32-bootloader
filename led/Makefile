@@ -81,7 +81,7 @@ $(ELF):$(COBJECT)
 $(COBJECT):$(CHEADER) Makefile chipKIT-application-32MX270F256.ld chipKIT-application-COMMON.ld
 
 program:build
-	kload program /dev/ttyAMA0 ${TARGET} 16
+	pload program /dev/ttyAMA0 ${TARGET} 24
 
 %.o:%.c
 	@echo -n "[CC] "
