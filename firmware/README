@@ -4,10 +4,13 @@
 # cdcacm.c, cdcacm.h	Copyright 2014 Rich Testardi
 #
 # CHIPKIT_DP32_48.mk	Copyright (c) 2014-2015 Darron Broad
+# CHIPKIT_PI_48.mk
 # CHIPKIT_PI.mk
 # CHIPKIT_PI_MX270_48.mk
 # CHIPKIT_PI_MX270.mk
 # CHIPKIT_PI_MX270_USB_48.mk
+# CHIPKIT_PI_USB_48.mk
+# CHIPKIT_PI_USB.mk
 #
 # crt0.S		Copyright Microchip Technology Inc.
 #
@@ -55,18 +58,23 @@ Origin:
 Changes:
 	Added	Makefile
 		CHIPKIT_DP32_48.mk
+		CHIPKIT_PI_48.mk
 		CHIPKIT_PI.mk
-		CHIPKIT_PI_MX270.mk
 		CHIPKIT_PI_MX270_48.mk
+		CHIPKIT_PI_MX270.mk
 		CHIPKIT_PI_MX270_USB_48.mk
+		CHIPKIT_PI_USB_48.mk
+		CHIPKIT_PI_USB.mk
 
 	Added __32MX270F256B__ CPU to BoardConfig.
 
 	Added the following to BoardConfig:
 		_BOARD_CHIPKIT_DP32_48_
-		_BOARD_CHIPKIT_PI_MX270_
+		_BOARD_CHIPKIT_PI_48_
 		_BOARD_CHIPKIT_PI_MX270_48_
+		_BOARD_CHIPKIT_PI_MX270_
 		_BOARD_CHIPKIT_PI_MX270_USB_48_
+		_BOARD_CHIPKIT_PI_USB_48_
 
 	Edited section sizes in linker scripts, reducing reset and increasing program.
 	Edited USB linker script, moving main.c flash functions from boot flash to program flash.
