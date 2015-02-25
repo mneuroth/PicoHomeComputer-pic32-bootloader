@@ -88,10 +88,10 @@ $(ELF):$(AOBJECT) $(COBJECT)
 $(COBJECT):$(CHEADER) Makefile MX1-2-USB-boot-linkerscript.ld
 
 program:build
-	k32 program $(TARGET)
+	p32 program $(TARGET)
 
 verify:
-	k32 verify $(TARGET)
+	p32 verify $(TARGET)
 
 $(BOARD)/%.o:%.c
 	@echo -n "[CC] "
