@@ -7,6 +7,7 @@
 # CHIPKIT_PI.mk
 # CHIPKIT_PI_MX270_48.mk
 # CHIPKIT_PI_MX270.mk
+# CHIPKIT_PI_MX270_USB_48.mk
 #
 # crt0.S		Copyright Microchip Technology Inc.
 #
@@ -52,11 +53,20 @@ Origin:
 	https://github.com/chipKIT32/PIC32-avrdude-bootloader
 
 Changes:
-	Added Makefile, CHIPKIT_DP32_48.mk, CHIPKIT_PI.mk, CHIPKIT_PI_MX270.mk & CHIPKIT_PI_MX270_48.mk
+	Added	Makefile
+		CHIPKIT_DP32_48.mk
+		CHIPKIT_PI.mk
+		CHIPKIT_PI_MX270.mk
+		CHIPKIT_PI_MX270_48.mk
+		CHIPKIT_PI_MX270_USB_48.mk
 
 	Added __32MX270F256B__ CPU to BoardConfig.
 
-	Added _BOARD_CHIPKIT_DP32_48_ & _BOARD_CHIPKIT_PI_MX270_ & _BOARD_CHIPKIT_PI_MX270_48_ to BoardConfig.
+	Added the following to BoardConfig:
+		_BOARD_CHIPKIT_DP32_48_
+		_BOARD_CHIPKIT_PI_MX270_
+		_BOARD_CHIPKIT_PI_MX270_48_
+		_BOARD_CHIPKIT_PI_MX270_USB_48_
 
 	Edited section sizes in linker scripts, reducing reset and increasing program.
 	Edited USB linker script, moving main.c flash functions from boot flash to program flash.

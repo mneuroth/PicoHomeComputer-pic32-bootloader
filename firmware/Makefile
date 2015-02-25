@@ -35,6 +35,7 @@ build:
 	$(MAKE) -f CHIPKIT_PI.mk build
 	$(MAKE) -f CHIPKIT_PI_MX270.mk build
 	$(MAKE) -f CHIPKIT_PI_MX270_48.mk build
+	$(MAKE) -f CHIPKIT_PI_MX270_USB_48.mk build
 
 install:build
 
@@ -45,3 +46,4 @@ clean:
 	$(MAKE) -f CHIPKIT_PI.mk clean
 	$(MAKE) -f CHIPKIT_PI_MX270.mk clean
 	$(MAKE) -f CHIPKIT_PI_MX270_48.mk clean
+	$(MAKE) -f CHIPKIT_PI_MX270_USB_48.mk clean
