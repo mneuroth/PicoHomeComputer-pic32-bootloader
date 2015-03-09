@@ -3,21 +3,20 @@
 #
 # cdcacm.c, cdcacm.h	Copyright 2014 Rich Testardi
 #
-# CHIPKIT_DP32_48.mk	Copyright (c) 2014-2015 Darron Broad
-# CHIPKIT_PI_48.mk
-# CHIPKIT_PI.mk
-# CHIPKIT_PI_MX270_48.mk
-# CHIPKIT_PI_MX270.mk
-# CHIPKIT_PI_MX270_USB_48.mk
-# CHIPKIT_PI_USB_48.mk
-# CHIPKIT_PI_USB.mk
-#
 # crt0.S		Copyright Microchip Technology Inc.
 #
 # main.c, main.h	Copyright 2014 Rich Testardi
 #			Copyright (c) 2013-2014, Digilent <www.digilentinc.com>
 # 
 # Makefile		Copyright (c) 2014-2015 Darron Broad
+# mk/CHIPKIT_DP32_48.mk
+# mk/CHIPKIT_PI_48.mk
+# mk/CHIPKIT_PI.mk
+# mk/CHIPKIT_PI_MX270_48.mk
+# mk/CHIPKIT_PI_MX270.mk
+# mk/CHIPKIT_PI_MX270_USB_48.mk
+# mk/CHIPKIT_PI_USB_48.mk
+# mk/CHIPKIT_PI_USB.mk
 #
 # serial.h		Copyright (c) 2013-2014, Digilent <www.digilentinc.com>
 #
@@ -57,14 +56,14 @@ Origin:
 
 Changes:
 	Added	Makefile
-		CHIPKIT_DP32_48.mk
-		CHIPKIT_PI_48.mk
-		CHIPKIT_PI.mk
-		CHIPKIT_PI_MX270_48.mk
-		CHIPKIT_PI_MX270.mk
-		CHIPKIT_PI_MX270_USB_48.mk
-		CHIPKIT_PI_USB_48.mk
-		CHIPKIT_PI_USB.mk
+		mk/CHIPKIT_DP32_48.mk
+		mk/CHIPKIT_PI_48.mk
+		mk/CHIPKIT_PI.mk
+		mk/CHIPKIT_PI_MX270_48.mk
+		mk/CHIPKIT_PI_MX270.mk
+		mk/CHIPKIT_PI_MX270_USB_48.mk
+		mk/CHIPKIT_PI_USB_48.mk
+		mk/CHIPKIT_PI_USB.mk
 
 	Added __32MX270F256B__ CPU to BoardConfig.
 

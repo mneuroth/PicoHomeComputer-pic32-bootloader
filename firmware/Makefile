@@ -31,25 +31,25 @@
 #
 
 build:
-	$(MAKE) -f CHIPKIT_DP32_48.mk build
-	$(MAKE) -f CHIPKIT_PI_48.mk build
-	$(MAKE) -f CHIPKIT_PI.mk build
-	$(MAKE) -f CHIPKIT_PI_MX270_48.mk build
-	$(MAKE) -f CHIPKIT_PI_MX270.mk build
-	$(MAKE) -f CHIPKIT_PI_MX270_USB_48.mk build
-	$(MAKE) -f CHIPKIT_PI_USB_48.mk build
-	$(MAKE) -f CHIPKIT_PI_USB.mk build
+	$(MAKE) -f mk/CHIPKIT_DP32_48.mk build
+	$(MAKE) -f mk/CHIPKIT_PI_48.mk build
+	$(MAKE) -f mk/CHIPKIT_PI.mk build
+	$(MAKE) -f mk/CHIPKIT_PI_MX270_48.mk build
+	$(MAKE) -f mk/CHIPKIT_PI_MX270.mk build
+	$(MAKE) -f mk/CHIPKIT_PI_MX270_USB_48.mk build
+	$(MAKE) -f mk/CHIPKIT_PI_USB_48.mk build
+	$(MAKE) -f mk/CHIPKIT_PI_USB.mk build
 
 install:build
 
 uninstall:
 
 clean:
-	$(MAKE) -f CHIPKIT_DP32_48.mk clean
-	$(MAKE) -f CHIPKIT_PI_48.mk clean
-	$(MAKE) -f CHIPKIT_PI.mk clean
-	$(MAKE) -f CHIPKIT_PI_MX270_48.mk clean
-	$(MAKE) -f CHIPKIT_PI_MX270.mk clean
-	$(MAKE) -f CHIPKIT_PI_MX270_USB_48.mk clean
-	$(MAKE) -f CHIPKIT_PI_USB_48.mk clean
-	$(MAKE) -f CHIPKIT_PI_USB.mk clean
+	$(MAKE) -f mk/CHIPKIT_DP32_48.mk clean
+	$(MAKE) -f mk/CHIPKIT_PI_48.mk clean
+	$(MAKE) -f mk/CHIPKIT_PI.mk clean
+	$(MAKE) -f mk/CHIPKIT_PI_MX270_48.mk clean
+	$(MAKE) -f mk/CHIPKIT_PI_MX270.mk clean
+	$(MAKE) -f mk/CHIPKIT_PI_MX270_USB_48.mk clean
+	$(MAKE) -f mk/CHIPKIT_PI_USB_48.mk clean
+	$(MAKE) -f mk/CHIPKIT_PI_USB.mk clean
