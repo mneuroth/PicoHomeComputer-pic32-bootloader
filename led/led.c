@@ -65,7 +65,7 @@
  *
  * Program
  * --------
- * kload program /dev/ttyAMA0 led.hex 24
+ * pload program /dev/ttyAMA0 led.hex 24
  *
  ******************************************************************************/
 
