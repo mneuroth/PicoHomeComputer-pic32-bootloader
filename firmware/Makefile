@@ -39,6 +39,7 @@ build:
 	$(MAKE) -f mk/CHIPKIT_PI_MX270_USB_48.mk build
 	$(MAKE) -f mk/CHIPKIT_PI_USB_48.mk build
 	$(MAKE) -f mk/CHIPKIT_PI_USB.mk build
+	$(MAKE) -f mk/MAJENKO_SDXL.mk build
 
 install:build
 
@@ -53,3 +54,5 @@ clean:
 	$(MAKE) -f mk/CHIPKIT_PI_MX270_USB_48.mk clean
 	$(MAKE) -f mk/CHIPKIT_PI_USB_48.mk clean
 	$(MAKE) -f mk/CHIPKIT_PI_USB.mk clean
+	$(MAKE) -f mk/MAJENKO_SDXL.mk clean
+	find . -name "*~" -delete
