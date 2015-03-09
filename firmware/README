@@ -65,9 +65,9 @@ Changes:
 		mk/CHIPKIT_PI_USB_48.mk
 		mk/CHIPKIT_PI_USB.mk
 
-	Added __32MX270F256B__ CPU to BoardConfig.
-
 	Added the following to BoardConfig:
+		__32MX170F256B__ MCU
+		__32MX270F256B__ MCU
 		_BOARD_CHIPKIT_DP32_48_
 		_BOARD_CHIPKIT_PI_48_
 		_BOARD_CHIPKIT_PI_MX270_48_
