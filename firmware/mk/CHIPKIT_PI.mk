@@ -64,8 +64,8 @@ COBJECT = $(BOARD)/main.o
 ASOURCE = crt0.S
 AOBJECT = $(BOARD)/crt0.o
 
-ELF     = $(TARGET:.hex=.elf)
-MAP     = $(TARGET:.hex=.map)
+ELF     = $(BOARD)/$(TARGET:.hex=.elf)
+MAP     = $(BOARD)/$(TARGET:.hex=.map)
 
 CFLAGS  = -Os -mips16 -mprocessor=$(CPU) -std=gnu99 -pedantic-errors -Wall -fverbose-asm -save-temps=obj
 CFLAGS += -mno-smart-io -w -ffunction-sections -fdata-sections -g3 -mdebugger -Wcast-align -fno-short-double -fframe-base-loclist
@@ -80,6 +80,7 @@ init:
 $(TARGET):$(ELF)
 	@echo -n "[HX] "
 	$(HX) $(ELF)
+	mv $(BOARD)/$(TARGET) $(TARGET)
 
 $(ELF):$(AOBJECT) $(COBJECT)
 	@echo -n "[LINK] "

@@ -3,7 +3,7 @@
 #
 # cdcacm.c, cdcacm.h	Copyright 2014 Rich Testardi
 #
-# crt0.S		Copyright Microchip Technology Inc.
+# crt0MZ.S, crt0.S	Copyright Microchip Technology Inc.
 #
 # main.c, main.h	Copyright 2014 Rich Testardi
 #			Copyright (c) 2013-2014, Digilent <www.digilentinc.com>
@@ -17,6 +17,9 @@
 # mk/CHIPKIT_PI_MX270_USB_48.mk
 # mk/CHIPKIT_PI_USB_48.mk
 # mk/CHIPKIT_PI_USB.mk
+#
+# pic32_init_cache.S	Copyright Microchip Technology Inc.
+# pic32_init_tlb_ebi_sqi.S
 #
 # serial.h		Copyright (c) 2013-2014, Digilent <www.digilentinc.com>
 #
