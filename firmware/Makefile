@@ -31,28 +31,12 @@
 #
 
 build:
-	$(MAKE) -f mk/CHIPKIT_DP32_48.mk build
-	$(MAKE) -f mk/CHIPKIT_PI_48.mk build
-	$(MAKE) -f mk/CHIPKIT_PI.mk build
-	$(MAKE) -f mk/CHIPKIT_PI_MX270_48.mk build
-	$(MAKE) -f mk/CHIPKIT_PI_MX270.mk build
-	$(MAKE) -f mk/CHIPKIT_PI_MX270_USB_48.mk build
-	$(MAKE) -f mk/CHIPKIT_PI_USB_48.mk build
-	$(MAKE) -f mk/CHIPKIT_PI_USB.mk build
-	$(MAKE) -f mk/MAJENKO_SDXL.mk build
+	find mk -name "*.mk" -exec $(MAKE) -f {} \;
 
 install:build
 
 uninstall:
 
 clean:
-	$(MAKE) -f mk/CHIPKIT_DP32_48.mk clean
-	$(MAKE) -f mk/CHIPKIT_PI_48.mk clean
-	$(MAKE) -f mk/CHIPKIT_PI.mk clean
-	$(MAKE) -f mk/CHIPKIT_PI_MX270_48.mk clean
-	$(MAKE) -f mk/CHIPKIT_PI_MX270.mk clean
-	$(MAKE) -f mk/CHIPKIT_PI_MX270_USB_48.mk clean
-	$(MAKE) -f mk/CHIPKIT_PI_USB_48.mk clean
-	$(MAKE) -f mk/CHIPKIT_PI_USB.mk clean
-	$(MAKE) -f mk/MAJENKO_SDXL.mk clean
+	find mk -name "*.mk" -exec $(MAKE) -f {} clean \;
 	find . -name "*~" -delete
