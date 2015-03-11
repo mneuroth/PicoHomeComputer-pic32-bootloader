@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2005-2014 Darron Broad
+ * Copyright (C) 2014-2015 Darron Broad
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -39,7 +39,12 @@
 #include <stdint.h>
 #include <plib.h>
 
-#define FCY (48000000UL)/* CHIPKIT_PI_MX270_48 */
-#include <delay.h>	/* delay_ms() */
+#if defined(LED_MX250)
+#define FCY (40000000UL)
+#endif
+
+#if defined(LED_MX270)
+#define FCY (48000000UL)
+#endif
 
 #endif

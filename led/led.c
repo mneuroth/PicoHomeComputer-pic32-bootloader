@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2005-2014 Darron Broad
+ * Copyright (C) 2014-2015 Darron Broad
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -32,12 +32,11 @@
 
 /*******************************************************************************
  *
- * R-PI 3V3 PIC32MX250F128B
+ * R-PI 3V3 PIC32MX250F128B / PIC32MX270F256B
  *
- * LED blinky which is no longer anything like the PIC32 starter kits users
- * guide example 3-1.
+ * LED blinky.
  *
- * This demo requires the chipKIT Pi MX270 boot loader at 48 MHz
+ * This demo requires the chipKIT Pi boot loader.
  *
  *******************************************************************************
  *
@@ -71,9 +70,18 @@
 
 #include "led.h"
 
-/*
- * Init I/O
- */
+void
+delay_ms(uint32_t ms)
+{
+	uint32_t startTime, waitTime;
+
+	startTime = ReadCoreTimer();
+	waitTime = (FCY / 2000) * ms;
+
+	while ((ReadCoreTimer() - startTime) < waitTime)
+		;
+}
+
 static inline void
 init_io(void)
 {
@@ -95,7 +103,6 @@ init_io(void)
 int
 main() 
 {
-	/* Init I/O */
 	init_io();
 
 	while(1) {

@@ -1,14 +1,14 @@
 #
-# Copyright (C) 2005-2014 Darron Broad
+# Copyright (C) 2014-2015 Darron Broad
 # All rights reserved.
-# 
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
 # are met:
-# 
+#
 # 1. Redistributions of source code must retain the above copyright
 #    notice, this list of conditions and the following disclaimer.
-# 
+#
 # 2. Redistributions in binary form must reproduce the above copyright
 #    notice, this list of conditions and the following disclaimer in the
 #    documentation and/or other materials provided with the distribution.
@@ -16,7 +16,7 @@
 # 3. Neither the name `Darron Broad' nor the names of any contributors
 #    may be used to endorse or promote products derived from this
 #    software without specific prior written permission.
-# 
+#
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
 # AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
 # IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
@@ -30,75 +30,15 @@
 # POSSIBILITY OF SUCH DAMAGE.
 #
 
-CPU     = 32MX270F256B
-
-HEAP    =
-STACK   =
-
-PIC32   = /opt/pic32-tools
-ifeq (,$(wildcard $(PIC32)))
-$(error $(PIC32) unavailable)
-endif
-
-COMPILE = $(PIC32)/bin/pic32-
-
-AS      = $(COMPILE)as
-LD      = $(COMPILE)ld
-CC      = $(COMPILE)gcc
-AR      = $(COMPILE)ar
-NM      = $(COMPILE)nm
-HX      = $(COMPILE)bin2hex
-STRIP   = $(COMPILE)strip
-OBJCOPY = $(COMPILE)objcopy
-OBJDUMP = $(COMPILE)objdump
-
-RM      = /bin/rm
-
-TARGET  = led.hex
-
-CSOURCE = led.c
-COBJECT = $(CSOURCE:.c=.o)
-CHEADER = $(CSOURCE:.c=.h)
-CTEMPS  = $(CSOURCE:.c=.s)
-
-ELF     = $(TARGET:.hex=.elf)
-MAP     = $(TARGET:.hex=.map)
-
-CFLAGS  = -Os -mprocessor=$(CPU) -std=gnu99 -pedantic-errors -Wall -g -fno-short-double -fverbose-asm -save-temps
-CFLAGS += -mno-smart-io -ffunction-sections -fdata-sections -mdebugger -Wcast-align -fframe-base-loclist -I.
-CLINK   = -Wl,-TchipKIT-application-32MX270F256.ld,-TchipKIT-application-COMMON.ld,-Map=$(MAP),--gc-sections -mno-peripheral-libs
-
-build:$(TARGET)
-
-$(TARGET):$(ELF)
-	@echo -n "[HX] "
-	$(HX) $(ELF)
-
-$(ELF):$(COBJECT)
-	@echo -n "[LINK] "
-	$(CC) $(CFLAGS) $(CPPFLAGS) $(AOBJECT) $(COBJECT) -o $(ELF) $(CLINK)
-
-$(COBJECT):$(CHEADER) Makefile chipKIT-application-32MX270F256.ld chipKIT-application-COMMON.ld
-
-program:build
-	pload program /dev/ttyAMA0 ${TARGET} 24
-
-%.o:%.c
-	@echo -n "[CC] "
-	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
-
-%.o:%.S
-	@echo -n "[CC] "
-	$(CC) $(CFLAGS) $(AFLAGS) $(CPPFLAGS) -c $< -o $@
-
-%.o:%.s
-	@echo -n "[AS] "
-	$(AS) $(AFLAGS) $< -a=$(<:.s=.lst) -o $@
+build:
+	$(MAKE) -f Makefile.mx250
+	$(MAKE) -f Makefile.mx270
 
 install:build
 
-uninstall:clean
+uninstall:
 
 clean:
-	@echo -n "[RM] "
-	$(RM) -f $(CTEMPS) *.o *.i *.elf *.map *.hex *~
+	$(MAKE) -f Makefile.mx250 clean
+	$(MAKE) -f Makefile.mx270 clean
+	find . -name "*~" -delete
