@@ -32,3 +32,7 @@
 
 -------------------------------------------------------------------------------
 
+To install the LED demo on the chipKIT Pi install Pickle ICSP and perform
+the following:
+	
+	make -f Makefile.mx250 program
