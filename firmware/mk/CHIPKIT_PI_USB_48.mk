@@ -57,9 +57,9 @@ RM      = /bin/rm
 
 TARGET  = $(BOARD).hex
 
-CSOURCE = main.c
-CHEADER = main.h BoardConfig.h serial.h util.h usb.h cdcacm.h
-COBJECT = $(BOARD)/main.o $(BOARD)/usb.o $(BOARD)/cdcacm.o
+CSOURCE = main.c usb.c cdcacm.c
+CHEADER = main.h usb.h cdcacm.h BoardConfig.h serial.h util.h
+COBJECT = $(BOARD)/main.o $(BOARD)/cdcacm.o $(BOARD)/usb.o
 
 ASOURCE = crt0.S
 AOBJECT = $(BOARD)/crt0.o
