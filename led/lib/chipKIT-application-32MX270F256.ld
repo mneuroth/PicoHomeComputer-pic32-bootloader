@@ -37,8 +37,8 @@ MEMORY
 {
   exception_mem              : ORIGIN = 0x9D000000, LENGTH = 0x1000
   kseg0_program_mem    (rx)  : ORIGIN = 0x9D001000, LENGTH = 0x3D000
-  kseg0_eeprom_mem           : ORIGIN = 0x9D01E000, LENGTH = 0x1000
-  kseg0_splitflash_mem       : ORIGIN = 0x9D01F000, LENGTH = 0x1000
+  kseg0_eeprom_mem           : ORIGIN = 0x9D03E000, LENGTH = 0x1000
+  kseg0_splitflash_mem       : ORIGIN = 0x9D03F000, LENGTH = 0x1000
   kseg0_boot_mem             : ORIGIN = 0x9FC00200, LENGTH = 0
   kseg1_boot_mem             : ORIGIN = 0xBFC00000, LENGTH = 0 
   debug_exec_mem             : ORIGIN = 0xBFC00490, LENGTH = 0

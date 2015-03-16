@@ -70,7 +70,7 @@ MAP     = $(BOARD)/$(TARGET:.hex=.map)
 CFLAGS  = -Os -mips16 -mprocessor=$(CPU) -std=gnu99 -pedantic-errors -Wall -fverbose-asm -save-temps=obj
 CFLAGS += -mno-smart-io -w -ffunction-sections -fdata-sections -g3 -mdebugger -Wcast-align -fno-short-double -fframe-base-loclist
 CFLAGS += -D_BOARD_$(BOARD)_
-CLINK   = -mno-peripheral-libs -nostartfiles -nostdlib -Wl,-Tlib/MX1-2-USB-boot-linkerscript.ld,-Map=$(MAP),--gc-sections
+CLINK   = -mno-peripheral-libs -nostartfiles -nostdlib -Wl,-Tlib/MX270-USB-boot-linkerscript.ld,-Map=$(MAP),--gc-sections
 
 build:init $(TARGET)
 
@@ -86,7 +86,7 @@ $(ELF):$(AOBJECT) $(COBJECT)
 	@echo -n "[LINK] "
 	$(CC) $(CFLAGS) $(CPPFLAGS) $(AOBJECT) $(COBJECT) -o $(ELF) $(CLINK)
 
-$(COBJECT):$(CHEADER) Makefile lib/MX1-2-USB-boot-linkerscript.ld
+$(COBJECT):$(CHEADER) Makefile lib/MX270-USB-boot-linkerscript.ld
 
 program:build
 	p32 program $(TARGET)
