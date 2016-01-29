@@ -586,7 +586,7 @@
 	// LED1 on RA0
 	// LED2 on RB15
 	// Boot button on RB9
-    #define CAPABILITIES    (blCapBootLED | blCapUARTInterface | blCapProgramButton | blCapVirtualProgramButton | CAPCOMMON)
+    #define CAPABILITIES    (blCapBootLED | blCapUARTInterface | blCapAutoResetListening | blCapVirtualProgramButton | CAPCOMMON)
 
     // BTN / LED sense
     #define LedOn       High
@@ -605,6 +605,7 @@
     #define PBntBit     9
 
     // Other capabilities
+    #define LISTEN_BEFORE_LOAD          5000                // no less than 5 seconds
     #define BOOTLOADER_UART             2                   // avrdude program UART
     #define BAUDRATE                    115200              // avrdude baudrate
     #define UARTMapRX()                 (U2RXR = 0x2)       // RB1 -> U2RX
@@ -670,7 +671,7 @@
 	// LED1 on RA0
 	// LED2 on RB15
 	// Boot button on RB9
-    #define CAPABILITIES    (blCapBootLED | blCapUARTInterface | blCapProgramButton | blCapVirtualProgramButton | CAPCOMMON)
+    #define CAPABILITIES    (blCapBootLED | blCapUARTInterface | blCapAutoResetListening | blCapVirtualProgramButton | CAPCOMMON)
 
     // BTN / LED sense
     #define LedOn       High
@@ -689,6 +690,7 @@
     #define PBntBit     9
 
     // Other capabilities
+    #define LISTEN_BEFORE_LOAD          5000                // no less than 5 seconds
     #define BOOTLOADER_UART             2
     #define BAUDRATE                    9600
     #define UARTMapRX()                 (U2RXR = 0x2)       // RB1 -> U2RX
