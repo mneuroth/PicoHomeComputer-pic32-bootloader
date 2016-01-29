@@ -30,7 +30,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 #
 
-CPU     = 32MX795F512H 
+CPU     = 32MX795F512H
 BOARD   = MAJENKO_SDXL
 OBJ     = obj/$(BOARD)
 LKR	= lib/MX3-7-boot-linkerscript.ld

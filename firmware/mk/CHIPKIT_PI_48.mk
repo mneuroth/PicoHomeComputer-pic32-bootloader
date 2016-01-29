@@ -70,7 +70,7 @@ ELF     = $(OBJ)/$(TARGET:.hex=.elf)
 MAP     = $(OBJ)/$(TARGET:.hex=.map)
 
 CFLAGS  = -mprocessor=$(CPU) -D_BOARD_$(BOARD)_ -mips16 -Os -fverbose-asm -save-temps=obj -mdebugger
-CLINK   = -nostdlib -nostartfiles -mno-peripheral-libs -Wl,-T$(LKR),-Map=$(MAP),--gc-sections
+CLINK   = -nostdlib -nostartfiles -mno-peripheral-libs -Wl,-T$(LKR),-Map=$(MAP)
 
 build:init $(TARGET)
 
