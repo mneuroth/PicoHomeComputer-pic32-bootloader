@@ -1,10 +1,9 @@
 default:
 	$(MAKE) --no-print-directory -f mk/Makefile
 
-clean:
-	$(MAKE) --no-print-directory -f mk/Makefile clean
+clean:distclean
+	rm -Rf obj
 	find . -name "*~" -delete
-	rm -f *.hex *.o
 
 BINPREFIX:=/opt/pic32-tools/bin/pic32-
 
