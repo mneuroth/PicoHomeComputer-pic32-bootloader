@@ -8,7 +8,8 @@
 # main.c, main.h	Copyright 2014 Rich Testardi
 #			Copyright (c) 2013-2014, Digilent <www.digilentinc.com>
 # 
-# Makefile		Copyright (c) 2014-2015 Darron Broad
+# Makefile		Copyright (c) 2014-2016 Darron Broad
+# mk/BREADBOARD.mk
 # mk/CHIPKIT_DP32_48.mk
 # mk/CHIPKIT_DP32_MX270_48.mk
 # mk/CHIPKIT_PI_48.mk
@@ -60,6 +61,7 @@ Origin:
 
 Changes:
 	Added	Makefile
+		mk/BREADBOARD.mk
 		mk/CHIPKIT_DP32_48.mk
 		mk/CHIPKIT_DP32_MX270_48.mk
 		mk/CHIPKIT_PI_48.mk
@@ -73,6 +75,7 @@ Changes:
 	Added the following to BoardConfig:
 		__32MX170F256B__ MCU
 		__32MX270F256B__ MCU
+		_BOARD_BREADBOARD_
 		_BOARD_CHIPKIT_DP32_48_
 		_BOARD_CHIPKIT_DP32_MX270_48_
 		_BOARD_CHIPKIT_PI_48_
