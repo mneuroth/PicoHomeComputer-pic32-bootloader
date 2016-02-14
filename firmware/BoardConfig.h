@@ -3817,7 +3817,7 @@
 #elif defined(_BOARD_BREADBOARD_)   // UART (Default) version
 
 /*
- * Like chipKITPi but with 40Mhz internal oscillator
+ * Like chipKITPi but with 40MHz internal oscillator
  */
 
 #if defined(PUT_CONFIG_BITS_HERE)
