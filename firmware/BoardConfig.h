@@ -3814,7 +3814,7 @@
     #define FLASH_PAGE_SIZE             1024                                // In bytes
 
 //************************************************************************
-#elif defined(_BOARD_BREADBOARD)   // UART (Default) version
+#elif defined(_BOARD_BREADBOARD_)   // UART (Default) version
 
 /*
  * Like chipKITPi but with 40Mhz internal oscillator
