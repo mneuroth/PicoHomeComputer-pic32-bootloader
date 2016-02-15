@@ -86,7 +86,7 @@ $(ELF):$(AOBJECT) $(COBJECT)
 	@echo -n "[LINK] "
 	$(CC) $(CFLAGS) $(CPPFLAGS) $(AOBJECT) $(COBJECT) -o $(ELF) $(CLINK)
 
-$(COBJECT):$(CHEADER) Makefile lib/MX3-7-boot-linkerscript.ld
+$(COBJECT):$(CHEADER) mk/MAJENKO_SDXL.mk lib/MX3-7-boot-linkerscript.ld
 
 program:build
 	p32 program $(TARGET)

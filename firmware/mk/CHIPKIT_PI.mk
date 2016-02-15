@@ -86,7 +86,7 @@ $(ELF):$(AOBJECT) $(COBJECT)
 	@echo -n "[LINK] "
 	$(CC) $(CFLAGS) $(CPPFLAGS) $(AOBJECT) $(COBJECT) -o $(ELF) $(CLINK)
 
-$(COBJECT):$(CHEADER) Makefile lib/MX1-2-boot-linkerscript.ld
+$(COBJECT):$(CHEADER) mk/CHIPKIT_PI.mk lib/MX1-2-boot-linkerscript.ld
 
 program:build
 	p32 program $(TARGET)
