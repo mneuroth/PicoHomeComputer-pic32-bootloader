@@ -106,7 +106,9 @@ static int replyi;          // number of reply bytes
 static byte reply[1024];    // reply buffer
 
 // Set when we want to change the baud rate
+#ifdef UBRG
 static uint32 baudRateChange = 0;
+#endif
 
 // Just-In-Time-Flash variables.
 
