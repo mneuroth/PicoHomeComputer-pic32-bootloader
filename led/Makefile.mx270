@@ -70,6 +70,10 @@ CFLAGS  += -mno-smart-io -ffunction-sections -fdata-sections -mdebugger -Wcast-a
 CFLAGS  += -DLED_$(PLATFORM)
 CLINK   := -Wl,-Tlib/chipKIT-application-32MX270F256.ld,-Tlib/chipKIT-application-COMMON.ld,-Map=$(MAP),--defsym,_min_heap_size=$(HEAP),--defsym,_min_stack_size=$(STACK),--gc-sections -mno-peripheral-libs
 
+# MPIDE avrdude
+AVRDUDE := /opt/mpide-0150-raspberrypi-20150820/hardware/tools/avrdude
+AVRCONF := /opt/mpide-0150-raspberrypi-20150820/hardware/tools/avrdude.conf
+
 ifneq (,$(wildcard $(PIC32)))
 build:		init $(TARGET)
 else
@@ -93,6 +97,12 @@ install:	build
 
 program:	build
 		pload program /dev/ttyAMA0 $(TARGET) 24
+
+avrdude:        build
+		$(AVRDUDE) -C $(AVRCONF) -p pic32-250-128-B -V -D -P /dev/ttyAMA0 -b 115200 -c stk500v2 -U flash:w:$(TARGET)
+
+pic32prog:      build
+		pic32prog -d /dev/ttyAMA0 -b 115200 $(TARGET)
 
 verify:		build
 
