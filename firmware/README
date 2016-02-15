@@ -91,3 +91,4 @@ Changes:
 
 	Edited section sizes in linker scripts, reducing reset and increasing program.
 	Edited USB linker script, moving main.c flash functions from boot flash to program flash.
+	Edited main.c to eliminate bloat in USB bootloader for redundant baud rate change.
