@@ -63,6 +63,7 @@ enum {
 #define CMD_PROGRAM_FLASH_ISP               0x13
 #define CMD_READ_FLASH_ISP                  0x14
 #define CMD_SPI_MULTI                       0x1D
+#define CMD_SET_BAUD                        0x48
 
 #define STATUS_CMD_OK                       0x00
 
@@ -104,6 +105,9 @@ static byte request[1024];  // request buffer
 static int replyi;          // number of reply bytes
 static byte reply[1024];    // reply buffer
 
+// Set when we want to change the baud rate
+static uint32 baudRateChange = 0;
+
 // Just-In-Time-Flash variables.
 
 // Unfortunately FLASH_BYTES is calculated at run time, so we have to just
@@ -119,7 +123,7 @@ int main()  // we're called directly by Crt0.S
     ASSERT(sizeof(byte) == 1);
     ASSERT(sizeof(uint16) == 2);
     ASSERT(sizeof(uint32) == 4);
- 
+
     ramHeader.rcon = RCON;
     InitLEDsAndButtons();
 
@@ -147,16 +151,16 @@ int main()  // we're called directly by Crt0.S
 	// Always clear out RCON after 'using' it's values, so it doesn't screw things up next time
     // This must occur after the WaitForFinalReset() and checking our program buttons states
     ClearVirtualProgramButton();
-	RCON = 0;	
+    RCON = 0;
 	
     // If we are just going to immediately load from flash
     // don't even init the UART or USB, just load the application
     if (fLoadProgramFromFlash && LISTEN_BEFORE_LOAD == 0)
-	{
+    {
         // launch the application!
         ExecuteApp();
     }
-	
+
     tLoopStart = _CP0_GET_COUNT();
     tLastBlink = tLoopStart;
 
@@ -180,7 +184,7 @@ int main()  // we're called directly by Crt0.S
 
             // set up for the next blink
             tLastBlink = tLoopTime;
-       }
+        }
 
         // See if we should jump to the application in flash
         // If we just loaded an application via the Stk500v2Interface, we know there is an applicaiton
@@ -220,6 +224,16 @@ int main()  // we're called directly by Crt0.S
             avrbl_message(request+REQUEST_OFFSET, requesti);
             ready = false;
         }
+
+#ifdef UBRG
+        if (baudRateChange != 0) {
+            while (!USTAbits.TRMT);
+//            UMODE   &=   ~(UART_ENABLE);
+            UBRG    =   ((F_PBUS / (16 * baudRateChange))-1); 
+//            UMODE   |=   (UART_ENABLE);
+            baudRateChange = 0;
+        }
+#endif
     }
 
     ASSERT(0);  // stop!
@@ -306,11 +320,30 @@ avrbl_message(byte *request, int size)
     static byte parameters[256];  // track stk500v2 parameters (we ignore them all)
 	static bool fGetBaseAddress = true;
 
+    // Override some special parameters with board and chip
+    // identification data.
+    
+    // We just don't have the flash on the smaller chips to do all these,
+    // so we will leave the board identification and chip revision out for now
+//    parameters[0x40] = VEND;
+//    parameters[0x41] = VEND >> 8;
+//    parameters[0x42] = PROD;
+//    parameters[0x43] = PROD >> 8;
+
+// These four are the ones that are really wanted, but memory is just too tight on
+// the MX1/2 boards. When we have found enough room then enable them again.
+//    parameters[0x44] = DEVIDbits.DEVID;
+//    parameters[0x45] = DEVIDbits.DEVID >> 8;
+//    parameters[0x46] = DEVIDbits.DEVID >> 16;
+//    parameters[0x47] = DEVIDbits.DEVID >> 24;
+
+//    parameters[0x48] = DEVIDbits.VER;
+    
     uint32 i;
     uint32 nbytes;
     uint32 nbytesAligned;
     uint32 endAddr;
-    uint32 address;
+    // uint32 address;
     int rawi;
     byte raw[64];
 
@@ -332,9 +365,16 @@ avrbl_message(byte *request, int size)
             active = true;
             erased = false;
             reply[replyi++] = 8;
-            ilstrcpy(reply+replyi, "STK500_2");
+            ilstrcpy((char *)(reply+replyi), "STK500_2");
             replyi += 8;
             DownloadLED_On();
+            break;
+        case CMD_SET_BAUD:
+            baudRateChange = request[1] | (request[2] << 8) | (request[3] << 16) | (request[4] << 24);
+            reply[replyi++] = request[1];
+            reply[replyi++] = request[2];
+            reply[replyi++] = request[3];
+            reply[replyi++] = request[4];
             break;
         case CMD_SET_PARAMETER:
             parameters[request[1]] = request[2];
@@ -360,13 +400,13 @@ avrbl_message(byte *request, int size)
            } else if ((request[4] == 0x20) || (request[4] == 0x28)) {
 
 /* this is never called, but lets just lie and say 0xFF
-                //* read one byte from flash
-                //* 0x20 is read odd byte
-                //* 0x28 is read even byte
+                // read one byte from flash
+                // 0x20 is read odd byte
+                // 0x28 is read even byte
 
-                //* read the even address
+                // read the even address
                 address = (request[5]<<8)|(request[6]);
-                //* the address is in 16 bit words
+                // the address is in 16 bit words
                 address = address<<1;
 
                 if (request[4] == 0x20) {
@@ -448,7 +488,7 @@ avrbl_message(byte *request, int size)
 
         case CMD_READ_FLASH_ISP:
 
-            endAddr = load_address + ((request[1])<<8)|(request[2]);
+            endAddr = load_address + (((request[1])<<8)|(request[2]));
 
 			// do this page by page as we might have to lie to avrdude.
 			while(load_address < endAddr)
@@ -739,7 +779,7 @@ static void finshFlashProcessingAfterLoad(void)
 
 /***    void flashOperation(uint32 nvmop, uint32 addr, uint32 data)
 **
-**    Synopsis:   
+**    Synopsis:
 **      Performs either a page erase, word write, or row write
 **
 **    Parameters:
@@ -764,7 +804,13 @@ static void __attribute__((nomips16)) flashOperation(uint32 nvmop, uint32 addr, 
 
     #if defined(_PCACHE)
         unsigned long   K0;
-        unsigned long   PFEN = CHECON & _CHECON_PREFEN_MASK;
+        #if defined(_CHECON_PREFEN_MASK)
+            unsigned long   PFEN = CHECON & _CHECON_PREFEN_MASK;
+        #elif defined(_PRECON_PREFEN_MASK)
+            unsigned long   PFEN = PRECON & _PRECON_PREFEN_MASK;
+        #else
+            #error Unable to get prefetch status for this CPU type
+        #endif
     #endif
 
     // Convert Address to Physical Address
@@ -783,7 +829,14 @@ static void __attribute__((nomips16)) flashOperation(uint32 nvmop, uint32 addr, 
 
     #if defined(_PCACHE)
         // disable predictive prefetching, see errata
-        CHECONCLR = _CHECON_PREFEN_MASK;
+        #if defined(_CHECON_PREFEN_MASK)
+            CHECONCLR = _CHECON_PREFEN_MASK;
+        #elif defined(_PRECON_PREFEN_MASK)
+            PRECONCLR = _PRECON_PREFEN_MASK;
+        #else
+            #error Unable disable prefetch for this CPU type
+        #endif
+    
 
         // turn off caching, see errata
         ReadK0(K0);
@@ -820,7 +873,13 @@ static void __attribute__((nomips16)) flashOperation(uint32 nvmop, uint32 addr, 
     #if defined(_PCACHE)
         // restore predictive prefetching and caching, see errata
         WriteK0(K0);
-        CHECONSET = PFEN;
+        #if defined(_CHECON_PREFEN_MASK)
+            CHECONSET = PFEN;
+        #elif defined(_PRECON_PREFEN_MASK)
+            PRECONSET = PFEN;
+        #else
+            #error Unable disable prefetch for this CPU type
+        #endif
     #endif
 
     // Restore Interrupts 
@@ -945,7 +1004,7 @@ static void flashWriteUint32(uint32 addrUint32, uint32 *rgu32Data, uint32 cu32Da
 static void justInTimeFlashErase(uint32 addrLow, uint32 addrHigh)
 {
 	uint32 addrCurPage 		= startOfFlashPage(addrLow);
-	uint32 addrLastPage 	= nextFlashPage(addrHigh - 1);
+	uint32 addrLastPage 	= nextFlashPage((addrHigh - 1));
 	uint32 iPage 			= getPageIndex(addrCurPage);
 
 	while(addrCurPage < addrLastPage)
