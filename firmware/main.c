@@ -378,10 +378,8 @@ avrbl_message(byte *request, int size)
             reply[replyi++] = request[2];
             reply[replyi++] = request[3];
             reply[replyi++] = request[4];
-            break;
-#else
-	    break;
 #endif
+            break;
         case CMD_SET_PARAMETER:
             parameters[request[1]] = request[2];
             break;
