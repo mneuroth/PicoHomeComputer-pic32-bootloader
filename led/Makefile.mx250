@@ -66,7 +66,7 @@ OBJECT  := $(foreach F,$(OBJECT),$(PLATFORM)/$(F))
 ELF     := $(PLATFORM)/$(TARGET:.hex=.elf)
 MAP     := $(PLATFORM)/$(TARGET:.hex=.map)
 
-CFLAGS  := -mprocessor=$(CPU) -DLED_$(PLATFORM) -mips16 -Os -fverbose-asm -save-temps=obj
+CFLAGS  := -mprocessor=$(CPU) -DLED_$(PLATFORM) -mips16 -Os -fverbose-asm -save-temps=obj -mdebugger
 CLINK   := -mno-peripheral-libs -Wl,-T$(LKR1),-T$(LKR2),-Map=$(MAP),--gc-sections,--defsym,_min_heap_size=$(HEAP),--defsym,_min_stack_size=$(STACK)
 
 # <plib.h> either use -fgnu89-inline for gcc or --allow-multiple-definition for ld

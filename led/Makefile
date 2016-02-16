@@ -33,6 +33,7 @@
 build:
 	$(MAKE) -f Makefile.mx250
 	$(MAKE) -f Makefile.mx270
+	$(MAKE) -f Makefile.mx795
 
 install:build
 
@@ -41,4 +42,5 @@ uninstall:
 clean:
 	$(MAKE) -f Makefile.mx250 clean
 	$(MAKE) -f Makefile.mx270 clean
+	$(MAKE) -f Makefile.mx795 clean
 	find . -name "*~" -delete

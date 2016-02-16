@@ -85,6 +85,16 @@ delay_ms(uint32_t ms)
 static inline void
 init_io(void)
 {
+#if defined(LED_MX795)
+	/* ADC Digital Mode */
+	AD1PCFG = 0xFFFF;
+
+	/* Reset LED */
+	LATE = 0x00;
+
+	/* LED RE7 O/P */
+	TRISE = 0x7F;
+#else
 	/* ADC Digital Mode */
 	ANSELA = 0;
 	ANSELB = 0;
@@ -98,6 +108,7 @@ init_io(void)
 
 	/* LED2 RB15 O/P */
 	TRISBbits.TRISB15 = 0;
+#endif
 }
 
 int
@@ -108,12 +119,16 @@ main()
 	while(1) {
 		/*  F = 1 Hz */
 		delay_ms(500);
-
+#if defined(LED_MX795)
+		/* RA0 = ! RA0 */
+		LATEbits.LATE7 = ~LATEbits.LATE7;
+#else
 		/* RA0 = ! RA0 */
 		LATAbits.LATA0 = ~LATAbits.LATA0;
 
 		/* RB15 = ! RB15 */
 		LATBbits.LATB15 = ~LATBbits.LATB15;
+#endif
 	}
 	return 0;
 }

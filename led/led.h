@@ -47,4 +47,8 @@
 #define FCY (48000000UL)
 #endif
 
+#if defined(LED_MX795)
+#define FCY (80000000UL)
+#endif
+
 #endif
