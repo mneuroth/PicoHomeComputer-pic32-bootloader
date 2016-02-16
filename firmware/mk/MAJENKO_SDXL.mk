@@ -69,7 +69,7 @@ AOBJECT = $(OBJ)/crt0.o
 ELF     = $(OBJ)/$(TARGET:.hex=.elf)
 MAP     = $(OBJ)/$(TARGET:.hex=.map)
 
-CFLAGS  = -mprocessor=$(CPU) -D_BOARD_$(BOARD)_ -mips16 -Os -fverbose-asm -save-temps=obj -ffunction-sections -fdata-sections
+CFLAGS  = -mprocessor=$(CPU) -D_BOARD_$(BOARD)_ -mips16 -Os -fverbose-asm -save-temps=obj -mdebugger -ffunction-sections -fdata-sections
 CLINK   = -nostdlib -nostartfiles -mno-peripheral-libs -Wl,-T$(LKR),-Map=$(MAP),--gc-sections -ffunction-sections -fdata-sections
 
 build:init $(TARGET)
