@@ -31,11 +31,11 @@
 #
 
 build:
-	find mk -name "*.mk" -exec $(MAKE) -f {} \;
+	find mk -name "*.mk" -exec $(MAKE) --no-print-directory -f {} \;
 
 install:build
 
 uninstall:
 
 clean:
-	find mk -name "*.mk" -exec $(MAKE) -f {} clean \;
+	find mk -name "*.mk" -exec $(MAKE) --no-print-directory -f {} clean \;

@@ -1,8 +1,8 @@
 default:
-	$(MAKE) -f mk/Makefile
+	$(MAKE) --no-print-directory -f mk/Makefile
 
 clean:
-	$(MAKE) -f mk/Makefile clean
+	$(MAKE) --no-print-directory -f mk/Makefile clean
 	find . -name "*~" -delete
 	rm -f *.hex *.o
 
