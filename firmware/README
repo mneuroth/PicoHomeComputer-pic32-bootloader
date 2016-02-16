@@ -8,7 +8,7 @@
 # main.c, main.h		Copyright 2014 Rich Testardi
 #				Copyright (c) 2013-2014, Digilent <www.digilentinc.com>
 # 
-# Makefile			Copyright (c) 2014-2016 Darron Broad
+# mk/Makefile			Copyright (c) 2014-2016 Darron Broad
 # mk/BREADBOARD_9600.mk
 # mk/BREADBOARD.mk
 # mk/CHIPKIT_DP32_48.mk
@@ -29,6 +29,8 @@
 # usb.c, usb.h			Copyright 2014 Rich Testardi
 #
 # util.h			Copyright 2014 Rich Testardi
+#
+# Makefile			Copyright Unknown
 #
 # This program is free software; distributed under the terms of
 # BSD 3-clause license ("Revised BSD License", "New BSD License", or "Modified BSD License")
@@ -61,7 +63,7 @@ Origin:
 	https://github.com/chipKIT32/PIC32-avrdude-bootloader
 
 Changes:
-	Added	Makefile
+	Added	mk/Makefile
 		mk/BREADBOARD_9600.mk
 		mk/BREADBOARD.mk
 		mk/CHIPKIT_DP32_48.mk
@@ -89,6 +91,7 @@ Changes:
 		_BOARD_CHIPKIT_PI_MX270_USB_48_
 		_BOARD_CHIPKIT_PI_USB_48_
 
+	Edited Makefile to default to building local firmware files.
 	Edited section sizes in linker scripts, reducing reset and increasing program.
 	Edited USB linker script, moving main.c flash functions from boot flash to program flash.
 	Edited main.c to eliminate bloat in USB bootloader for redundant baud rate change.
