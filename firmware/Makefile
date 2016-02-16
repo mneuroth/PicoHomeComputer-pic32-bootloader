@@ -256,7 +256,7 @@ all:
 compile: ${BIN_${BOARD}}.hex
 
 install: ${BIN_${BOARD}}.hex
-	cp ${BIN_${BOARD}}.hex ../BootloadersCurrent-hex
+	#cp ${BIN_${BOARD}}.hex ../BootloadersCurrent-hex
 	
 ${BIN_${BOARD}}.hex: ${BIN_${BOARD}}.elf
 	${BIN2HEX} -a $?
