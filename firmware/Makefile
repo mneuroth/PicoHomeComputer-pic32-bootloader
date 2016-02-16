@@ -1,6 +1,11 @@
 default:
 	$(MAKE) -f mk/Makefile
 
+clean:
+	$(MAKE) -f mk/Makefile clean
+	find . -name "*~" -delete
+	rm -f *.hex *.o
+
 BINPREFIX:=/opt/pic32-tools/bin/pic32-
 
 CC=${BINPREFIX}gcc
@@ -232,7 +237,7 @@ DEF_mikroe-clicker=-D_BOARD_MIKROE_PIC32MX_CLICKER_
 LKR_mikroe-clicker=MX3-7-boot-linkerscript.ld
 CFL_mikroe-clicker=-mips16
 
-CFLAGS=-mprocessor=${MCU_${BOARD}} ${DEF_${BOARD}} ${CFL_${BOARD}} -Os -mno-float -I.
+CFLAGS=-mprocessor=${MCU_${BOARD}} ${DEF_${BOARD}} ${CFL_${BOARD}} -Os -mno-float -I. -ffunction-sections -fdata-sections
 ASFLAGS=-Wa,--gdwarf-2 -mprocessor=${MCU_${BOARD}} ${DEF_${BOARD}} ${CFL_${BOARD}} -Os -mno-float -I.
 LDFLAGS=-mprocessor=${MCU_${BOARD}} -nostdlib -nostartfiles ${CFL_${BOARD}} -mno-float -T lib/${LKR_${BOARD}} -Wl,--gc-sections -ffunction-sections -fdata-sections
 
@@ -259,18 +264,16 @@ ${BIN_${BOARD}}.hex: ${BIN_${BOARD}}.elf
 ${BIN_${BOARD}}.elf: ${OBJ_${BOARD}}
 	${CC} ${LDFLAGS} -o $@ ${CRT_${BOARD}} $?
 
-clean:
-	$(MAKE) -f mk/Makefile clean
+tidy:
 	rm -f *.o *.elf
-	find . -name "*~" -delete
 
-distclean:clean
-	rm -f *.hex
+distclean:
+	rm -f *.o *.elf *.hex
 
 everything:
 	for B in ${BOARDS}; do \
 		echo $$B; \
-		$(MAKE) -s clean; \
+		$(MAKE) -s tidy; \
 		$(MAKE) -s compile BOARD=$$B; \
 		$(MAKE) -s install BOARD=$$B; \
 	done
