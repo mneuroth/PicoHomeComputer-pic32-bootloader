@@ -32,6 +32,7 @@
 
 CPU     = 32MX250F128B
 BOARD	= CHIPKIT_PI_48
+OBJ     = obj/$(BOARD)
 
 HEAP    =
 STACK   =
@@ -59,13 +60,13 @@ TARGET  = $(BOARD).hex
 
 CSOURCE = main.c
 CHEADER = main.h BoardConfig.h serial.h util.h
-COBJECT = $(BOARD)/main.o
+COBJECT = $(OBJ)/main.o
 
 ASOURCE = crt0.S
-AOBJECT = $(BOARD)/crt0.o
+AOBJECT = $(OBJ)/crt0.o
 
-ELF     = $(BOARD)/$(TARGET:.hex=.elf)
-MAP     = $(BOARD)/$(TARGET:.hex=.map)
+ELF     = $(OBJ)/$(TARGET:.hex=.elf)
+MAP     = $(OBJ)/$(TARGET:.hex=.map)
 
 CFLAGS  = -Os -mips16 -mprocessor=$(CPU) -std=gnu99 -pedantic-errors -Wall -fverbose-asm -save-temps=obj
 CFLAGS += -mno-smart-io -w -ffunction-sections -fdata-sections -g3 -mdebugger -Wcast-align -fno-short-double -fframe-base-loclist
@@ -75,12 +76,12 @@ CLINK   = -mno-peripheral-libs -nostartfiles -nostdlib -Wl,-Tlib/MX1-2-boot-link
 build:init $(TARGET)
 
 init:
-	@mkdir -p $(BOARD)
+	@mkdir -p $(OBJ)
 
 $(TARGET):$(ELF)
 	@echo -n "[HX] "
 	$(HX) $(ELF)
-	mv $(BOARD)/$(TARGET) $(TARGET)
+	mv $(OBJ)/$(TARGET) $(TARGET)
 
 $(ELF):$(AOBJECT) $(COBJECT)
 	@echo -n "[LINK] "
@@ -94,11 +95,11 @@ program:build
 verify:
 	p32 verify $(TARGET)
 
-$(BOARD)/%.o:%.c
+$(OBJ)/%.o:%.c
 	@echo -n "[CC] "
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
 
-$(BOARD)/%.o:%.S
+$(OBJ)/%.o:%.S
 	@echo -n "[CC] "
 	$(CC) $(CFLAGS) $(AFLAGS) $(CPPFLAGS) -c $< -o $@
 
@@ -108,6 +109,4 @@ uninstall:clean
 
 clean:
 	@echo -n "[RM] "
-	$(RM) -Rf $(BOARD)
-	@echo -n "[RM] "
-	$(RM) -f *.elf *.map *.hex *~
+	$(RM) -Rf obj *.elf *.map *.hex *~

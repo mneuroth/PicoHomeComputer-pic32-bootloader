@@ -261,12 +261,12 @@ ${BIN_${BOARD}}.elf: ${OBJ_${BOARD}}
 	${CC} ${LDFLAGS} -o $@ ${CRT_${BOARD}} $?
 
 clean:
+	find . -name "*~" -delete
 	$(MAKE) -f mk/Makefile clean
 	rm -f *.o *.elf
 
-distclean:
-	$(MAKE) -f mk/Makefile clean
-	rm -f *.o *.elf *.hex *~
+distclean:clean
+	rm -f *.hex
 
 everything:
 	for B in ${BOARDS}; do \
