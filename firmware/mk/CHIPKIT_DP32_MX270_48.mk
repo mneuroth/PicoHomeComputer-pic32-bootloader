@@ -33,6 +33,7 @@
 CPU     = 32MX270F256B
 BOARD   = CHIPKIT_DP32_MX270_48
 OBJ     = obj/$(BOARD)
+LKR	= lib/MX270-USB-boot-linkerscript.ld
 
 HEAP    =
 STACK   =
@@ -68,10 +69,8 @@ AOBJECT = $(OBJ)/crt0.o
 ELF     = $(OBJ)/$(TARGET:.hex=.elf)
 MAP     = $(OBJ)/$(TARGET:.hex=.map)
 
-CFLAGS  = -Os -mips16 -mprocessor=$(CPU) -std=gnu99 -pedantic-errors -Wall -fverbose-asm -save-temps=obj
-CFLAGS += -mno-smart-io -w -ffunction-sections -fdata-sections -g3 -mdebugger -Wcast-align -fno-short-double -fframe-base-loclist
-CFLAGS += -D_BOARD_$(BOARD)_
-CLINK   = -mno-peripheral-libs -nostartfiles -nostdlib -Wl,-Tlib/MX270-USB-boot-linkerscript.ld,-Map=$(MAP),--gc-sections
+CFLAGS  = -mprocessor=$(CPU) -D_BOARD_$(BOARD)_ -mips16 -Os -fverbose-asm -save-temps=obj -ffunction-sections -fdata-sections
+CLINK   = -nostdlib -nostartfiles -mno-peripheral-libs -Wl,-T$(LKR),-Map=$(MAP),--gc-sections -ffunction-sections -fdata-sections
 
 build:init $(TARGET)
 
@@ -87,7 +86,7 @@ $(ELF):$(AOBJECT) $(COBJECT)
 	@echo -n "[LINK] "
 	$(CC) $(CFLAGS) $(CPPFLAGS) $(AOBJECT) $(COBJECT) -o $(ELF) $(CLINK)
 
-$(COBJECT):$(CHEADER) mk/CHIPKIT_DP32_MX270_48.mk lib/MX270-USB-boot-linkerscript.ld
+$(COBJECT):$(CHEADER) mk/CHIPKIT_DP32_MX270_48.mk $(LKR)
 
 program:build
 	p32 program $(TARGET)

@@ -1,0 +1,18 @@
+# use glob syntax.
+syntax: glob
+
+*~
+*.i
+*.o
+*.s
+*.cod
+*.cof
+*.elf
+*.hex
+*.lst
+*.map
+*.swp
+*.sym
+
+# switch to regexp syntax.
+syntax: regexp
