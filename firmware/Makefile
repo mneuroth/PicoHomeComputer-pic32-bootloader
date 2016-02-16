@@ -1,3 +1,5 @@
+default:
+	$(MAKE) -f mk/Makefile
 
 BINPREFIX:=/opt/pic32-tools/bin/pic32-
 
@@ -234,9 +236,6 @@ CFLAGS=-mprocessor=${MCU_${BOARD}} ${DEF_${BOARD}} ${CFL_${BOARD}} -Os -mno-floa
 ASFLAGS=-Wa,--gdwarf-2 -mprocessor=${MCU_${BOARD}} ${DEF_${BOARD}} ${CFL_${BOARD}} -Os -mno-float -I.
 LDFLAGS=-mprocessor=${MCU_${BOARD}} -nostdlib -nostartfiles ${CFL_${BOARD}} -mno-float -T lib/${LKR_${BOARD}} -Wl,--gc-sections -ffunction-sections -fdata-sections
 
-default:
-	$(MAKE) -f mk/Makefile
-
 # Default target will list all the available targets
 all:
 	@echo "Specify a board to build for:"
@@ -261,9 +260,9 @@ ${BIN_${BOARD}}.elf: ${OBJ_${BOARD}}
 	${CC} ${LDFLAGS} -o $@ ${CRT_${BOARD}} $?
 
 clean:
-	find . -name "*~" -delete
 	$(MAKE) -f mk/Makefile clean
 	rm -f *.o *.elf
+	find . -name "*~" -delete
 
 distclean:clean
 	rm -f *.hex
