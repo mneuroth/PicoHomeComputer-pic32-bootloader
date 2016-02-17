@@ -138,7 +138,10 @@
 #include "configs/openbci.h"
 #include "configs/pontech.h"
 #include "configs/schmalzhaus.h"
-#include "configs/kewl.h"
+
+// Custom boards
+#include "configs/not_digilent.h"
+#include "configs/not_element14.h"
 
 #ifndef _CONFIG_VALID_
     #error    Board/CPU combination not defined
