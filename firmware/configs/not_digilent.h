@@ -5,6 +5,8 @@
 #define _CONFIG_VALID_
 #if defined(PUT_CONFIG_BITS_HERE)
 
+    /* Like DP32 but with 48MHz oscillator */
+
     //* Oscillator Settings
     #pragma config FNOSC    = PRIPLL                        // Oscillator selection
     #pragma config POSCMOD  = XT                            // Primary oscillator mode
@@ -44,7 +46,7 @@
     #pragma config IOL1WAY  = OFF                           // Allow multiple reconfigurations
 #endif
 
-    #define CAPABILITIES    (blCapBootLED | blCapDownloadLED | blCapSplitFlashBootloader | blCapUSBInterface | blCapProgramButton | blCapVirtualProgramButton | CAPCOMMON)
+    #define CAPABILITIES (blCapBootLED | blCapDownloadLED | blCapSplitFlashBootloader | blCapUSBInterface | blCapProgramButton | blCapVirtualProgramButton | CAPCOMMON)
 
     // BTN / LED sense
     #define LedOn       High
@@ -80,6 +82,8 @@
 #define _CONFIG_VALID_
 #if defined(PUT_CONFIG_BITS_HERE)
 
+    /* Like DP32 but with MX270 processor and 48MHz oscillator */
+
     //* Oscillator Settings
     #pragma config FNOSC    = PRIPLL                        // Oscillator selection
     #pragma config POSCMOD  = XT                            // Primary oscillator mode
@@ -119,7 +123,7 @@
     #pragma config IOL1WAY  = OFF                           // Allow multiple reconfigurations
 #endif
 
-    #define CAPABILITIES    (blCapBootLED | blCapDownloadLED | blCapSplitFlashBootloader | blCapUSBInterface | blCapProgramButton | blCapVirtualProgramButton | CAPCOMMON)
+    #define CAPABILITIES (blCapBootLED | blCapDownloadLED | blCapSplitFlashBootloader | blCapUSBInterface | blCapProgramButton | blCapVirtualProgramButton | CAPCOMMON)
 
     // BTN / LED sense
     #define LedOn       High

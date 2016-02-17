@@ -5,6 +5,8 @@
 #define _CONFIG_VALID_
 #if defined(PUT_CONFIG_BITS_HERE)
 
+    /* Like chipKIT Pi but with 48MHz oscillator */
+
     //* Oscillator Settings
     #pragma config FNOSC    = PRIPLL                        // Oscillator selection
     #pragma config POSCMOD  = HS                            // Primary oscillator mode
@@ -85,6 +87,8 @@
 #define _CONFIG_VALID_
 #if defined(PUT_CONFIG_BITS_HERE)
 
+    /* Like chipKIT Pi USB but with 48MHz oscillator */
+
     //* Oscillator Settings
     #pragma config FNOSC    = PRIPLL                        // Oscillator selection
     #pragma config POSCMOD  = HS                            // Primary oscillator mode
@@ -158,6 +162,8 @@
 #elif defined(_BOARD_CHIPKIT_PI_MX270_)
 #define _CONFIG_VALID_
 #if defined(PUT_CONFIG_BITS_HERE)
+
+    /* Like chipKIT Pi but with MX270 processor */
 
     //* Oscillator Settings
     #pragma config FNOSC    = PRIPLL                        // Oscillator selection
@@ -239,6 +245,8 @@
 #define _CONFIG_VALID_
 #if defined(PUT_CONFIG_BITS_HERE)
 
+    /* Like chipKIT Pi but with MX270 processor and 48MHz oscillator */
+
     //* Oscillator Settings
     #pragma config FNOSC    = PRIPLL                        // Oscillator selection
     #pragma config POSCMOD  = HS                            // Primary oscillator mode
@@ -318,6 +326,8 @@
 #elif defined(_BOARD_CHIPKIT_PI_MX270_USB_48_)
 #define _CONFIG_VALID_
 #if defined(PUT_CONFIG_BITS_HERE)
+
+    /* Like chipKIT Pi USB but with MX270 processor and 48MHz oscillator */
 
     //* Oscillator Settings
     #pragma config FNOSC    = PRIPLL                        // Oscillator selection
