@@ -24,14 +24,14 @@
     //* USB Settings
     #pragma config UPLLEN   = ON                            // USB PLL enable
     #pragma config UPLLIDIV = DIV_2                         // USB PLL input divider
-    #pragma config FUSBIDIO = OFF							// USB USID pin controlled by port function
-    #pragma config FVBUSONIO = OFF							// USB VBUSON pin controlled by port function
+    #pragma config FUSBIDIO = OFF                           // USB USID pin controlled by port function
+    #pragma config FVBUSONIO = OFF                          // USB VBUSON pin controlled by port function
 
     //* Other Peripheral Device settings
     #pragma config FWDTEN   = OFF                           // Watchdog timer enable
     #pragma config WDTPS    = PS1024                        // Watchdog timer postscaler
     #pragma config WINDIS   = OFF
-    #pragma config JTAGEN   = OFF                          	// JTAG port disabled
+    #pragma config JTAGEN   = OFF                           // JTAG port disabled
 
     //* Code Protection settings
     #pragma config CP       = OFF                           // Code protection
@@ -46,8 +46,8 @@
     #pragma config IOL1WAY  = OFF                           // Allow multiple reconfigurations
 #endif
 
-	// LED1 on RA0
-	// LED2 on RB15
+    // LED1 on RA0
+    // LED2 on RB15
     #define CAPABILITIES (blCapBootLED | blCapUARTInterface | blCapAutoResetListening | CAPCOMMON)
 
     // LED sense
@@ -71,7 +71,7 @@
     #define F_PBUS                      F_CPU
 
     #define FLASH_BYTES                 (0x20000-0x1000)    // Leave room one flash block (for bootloader!)
-    #define FLASH_PAGE_SIZE             1024				// In bytes
+    #define FLASH_PAGE_SIZE             1024                // In bytes
 #endif
 
 //************************************************************************
@@ -89,29 +89,29 @@
     #pragma config FPLLODIV = DIV_2                         // PLL output divider
     #pragma config FPBDIV   = DIV_1                         // Peripheral bus clock divider
     #pragma config FSOSCEN  = OFF                           // Secondary oscillator enable
-    
+
     //* Clock control settings
     #pragma config IESO     = OFF                           // Internal/external clock switchover
     #pragma config FCKSM    = CSECME                        // Clock switching (CSx)/Clock monitor (CMx)
     #pragma config OSCIOFNC = OFF                           // Clock output on OSCO pin enable
-    
+
     //* USB Settings
     #pragma config UPLLEN   = ON                            // USB PLL enable
     #pragma config UPLLIDIV = DIV_2                         // USB PLL input divider
-    #pragma config FUSBIDIO = OFF							// USB USID pin controlled by port function
-    #pragma config FVBUSONIO = OFF							// USB VBUSON pin controlled by port function
-    
+    #pragma config FUSBIDIO = OFF                           // USB USID pin controlled by port function
+    #pragma config FVBUSONIO = OFF                          // USB VBUSON pin controlled by port function
+
     //* Other Peripheral Device settings
     #pragma config FWDTEN   = OFF                           // Watchdog timer enable
     #pragma config WDTPS    = PS1024                        // Watchdog timer postscaler
     #pragma config WINDIS   = OFF
-    #pragma config JTAGEN   = OFF                          	// JTAG port disabled
-    
+    #pragma config JTAGEN   = OFF                           // JTAG port disabled
+
     //* Code Protection settings
     #pragma config CP       = OFF                           // Code protection
     #pragma config BWP      = OFF                           // Boot flash write protect
     #pragma config PWP      = OFF                           // Program flash write protect
-    
+
     //* Debug settings
     #pragma config ICESEL   = ICS_PGx1                      // ICE/ICD Comm Channel Select
     //#pragma config DEBUG    = ON                          // DO NOT SET THIS CONFIG BIT, it will break debugging
@@ -119,9 +119,9 @@
     #pragma config PMDL1WAY = OFF                           // Allow multiple reconfigurations
     #pragma config IOL1WAY  = OFF                           // Allow multiple reconfigurations
 #endif
-    
-	// LED1 on RA0
-	// LED2 on RB15
+
+    // LED1 on RA0
+    // LED2 on RB15
     #define CAPABILITIES (blCapBootLED | blCapSplitFlashBootloader | blCapUSBInterface | blCapAutoResetListening | CAPCOMMON)
 
     // LED sense
@@ -131,7 +131,7 @@
     // Boot LED
     #define BLedLat     A
     #define BLedBit     0
-  
+
     // Other capabilities
     #define LISTEN_BEFORE_LOAD          3000                // no less than 3 seconds
 
@@ -142,7 +142,7 @@
     #define F_PBUS                      F_CPU
 
     #define FLASH_BYTES                 (0x20000-0x1000)    // Leave room one flash block (for bootloader!)
-    #define FLASH_PAGE_SIZE             1024				// In bytes
+    #define FLASH_PAGE_SIZE             1024                // In bytes
 #endif
 
 //************************************************************************
