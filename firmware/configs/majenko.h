@@ -10,6 +10,7 @@
 #define     prodSDZL                    0x0003
 #define     prodUltraNano               0x0004
 
+#if 0
 #if defined(_BOARD_MAJENKO_SDXL_)
 #define _CONFIG_VALID_
 
@@ -76,7 +77,7 @@
     #define FLASH_PAGE_SIZE             4096
     #define LoadFlashWaitStates()       (CHECON = 2)            // 0 for 0-30Mhz, 1 for 31-60Mhz, 2 for 61-80Mhz
 #endif
-
+#endif
 //************************************************************************
 
 #if defined(_BOARD_MAJENKO_SDAU_)

@@ -3,6 +3,7 @@
 #define     prodChipkitPi		0x0001
 
 //************************************************************************
+#if 0
 #if defined(_BOARD_CHIPKIT_PI_)   // UART (Default) version
 #define _CONFIG_VALID_
 // NOTE: As of 8/20/2013 the crystal on the board (v3.37 and above) is now 8MHz, so this bootloader has been updated
@@ -161,4 +162,4 @@
     #define FLASH_BYTES                 (0x20000-0x1000)		    // Leave room one flash block (for bootloader!)
     #define FLASH_PAGE_SIZE             1024						// In bytes
 #endif
-
+#endif

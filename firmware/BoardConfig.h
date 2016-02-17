@@ -129,7 +129,7 @@
 #undef _CONFIG_VALID_
 #include "configs/4d.h"
 #include "configs/digilent.h"
-// #include "configs/element14.h"
+#include "configs/element14.h"
 #include "configs/examples.h"
 #include "configs/fubarino.h"
 #include "configs/majenko.h"
@@ -139,9 +139,10 @@
 #include "configs/pontech.h"
 #include "configs/schmalzhaus.h"
 
-// Custom boards
+// Custom and customised boards
 #include "configs/not_digilent.h"
 #include "configs/not_element14.h"
+#include "configs/not_majenko.h"
 
 #ifndef _CONFIG_VALID_
     #error    Board/CPU combination not defined

@@ -1,9 +1,5 @@
 /* Not Element 14 Boards */
 
-#ifndef prodChipkitPi
-#define prodChipkitPi 0x0001
-#endif
-
 //************************************************************************
 #if defined(_BOARD_CHIPKIT_PI_)
 #define _CONFIG_VALID_
@@ -221,9 +217,10 @@
 
     #define FLASH_BYTES                 (0x20000-0x1000)    // Leave room one flash block (for bootloader!)
     #define FLASH_PAGE_SIZE             1024                // In bytes
+#endif
 
 //************************************************************************
-#elif defined(_BOARD_CHIPKIT_PI_USB_48_)
+#if defined(_BOARD_CHIPKIT_PI_USB_48_)
 #define _CONFIG_VALID_
 #if defined(PUT_CONFIG_BITS_HERE)
 
@@ -291,9 +288,10 @@
 
     #define FLASH_BYTES                 (0x20000-0x1000)    // Leave room one flash block (for bootloader!)
     #define FLASH_PAGE_SIZE             1024                // In bytes
+#endif
 
 //************************************************************************
-#elif defined(_BOARD_CHIPKIT_PI_MX270_)
+#if defined(_BOARD_CHIPKIT_PI_MX270_)
 #define _CONFIG_VALID_
 #if defined(PUT_CONFIG_BITS_HERE)
 
@@ -364,9 +362,10 @@
 
     #define FLASH_BYTES                 (0x40000-0x1000)    // Leave room one flash block (for bootloader!)
     #define FLASH_PAGE_SIZE             1024                // In bytes
+#endif
 
 //************************************************************************
-#elif defined(_BOARD_CHIPKIT_PI_MX270_48_)
+#if defined(_BOARD_CHIPKIT_PI_MX270_48_)
 #define _CONFIG_VALID_
 #if defined(PUT_CONFIG_BITS_HERE)
 
@@ -437,9 +436,10 @@
 
     #define FLASH_BYTES                 (0x40000-0x1000)    // Leave room one flash block (for bootloader!)
     #define FLASH_PAGE_SIZE             1024                // In bytes
+#endif
 
 //************************************************************************
-#elif defined(_BOARD_CHIPKIT_PI_MX270_USB_48_)
+#if defined(_BOARD_CHIPKIT_PI_MX270_USB_48_)
 #define _CONFIG_VALID_
 #if defined(PUT_CONFIG_BITS_HERE)
 
@@ -506,9 +506,10 @@
 
     #define FLASH_BYTES                 (0x40000-0x1000)    // Leave room one flash block (for bootloader!)
     #define FLASH_PAGE_SIZE             1024                // In bytes
+#endif
 
 //************************************************************************
-#elif defined(_BOARD_BREADBOARD_)
+#if defined(_BOARD_BREADBOARD_)
 #define _CONFIG_VALID_
 #if defined(PUT_CONFIG_BITS_HERE)
 
@@ -578,9 +579,10 @@
 
     #define FLASH_BYTES                 (0x20000-0x1000)    // Leave room one flash block (for bootloader!)
     #define FLASH_PAGE_SIZE             1024                // In bytes
+#endif
 
 //************************************************************************
-#elif defined(_BOARD_BREADBOARD_9600_)
+#if defined(_BOARD_BREADBOARD_9600_)
 #define _CONFIG_VALID_
 #if defined(PUT_CONFIG_BITS_HERE)
 
@@ -650,9 +652,9 @@
 
     #define FLASH_BYTES                 (0x20000-0x1000)    // Leave room one flash block (for bootloader!)
     #define FLASH_PAGE_SIZE             1024                // In bytes
+#endif
 
 //************************************************************************
-#endif
 
 /*
  * vim: shiftwidth=4 tabstop=4 softtabstop=4 expandtab
