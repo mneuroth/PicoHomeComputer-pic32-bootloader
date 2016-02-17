@@ -38,7 +38,7 @@
     #pragma config BWP      = OFF                           // Boot flash write protect
     #pragma config PWP      = OFF                           // Program flash write protect
 
-    //*    Debug settings
+    //* Debug settings
     #pragma config ICESEL   = ICS_PGx1                      // ICE/ICD Comm Channel Select
     //#pragma config DEBUG    = ON                          // DO NOT SET THIS CONFIG BIT, it will break debugging
 
@@ -115,7 +115,7 @@
     #pragma config BWP      = OFF                           // Boot flash write protect
     #pragma config PWP      = OFF                           // Program flash write protect
 
-    //*    Debug settings
+    //* Debug settings
     #pragma config ICESEL   = ICS_PGx1                      // ICE/ICD Comm Channel Select
     //#pragma config DEBUG    = ON                          // DO NOT SET THIS CONFIG BIT, it will break debugging
 

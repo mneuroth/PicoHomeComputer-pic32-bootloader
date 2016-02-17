@@ -80,6 +80,7 @@ init:
 $(TARGET):$(ELF)
 	@echo -n "[HX] "
 	$(HX) $(ELF)
+	@echo -n "[MV] "
 	mv $(OBJ)/$(TARGET) $(TARGET)
 
 $(ELF):$(AOBJECT) $(COBJECT)
