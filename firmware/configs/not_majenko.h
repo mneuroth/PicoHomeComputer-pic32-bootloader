@@ -5,7 +5,7 @@
 #define _CONFIG_VALID_
 #if defined(PUT_CONFIG_BITS_HERE)
 
-    /* Like SDXL but without BOOTLOAD BUTTON */
+    /* Like SDXL but without PROG button */
 
     //* Oscillator Settings
     #pragma config FNOSC    = PRIPLL                        // Oscillator selection
