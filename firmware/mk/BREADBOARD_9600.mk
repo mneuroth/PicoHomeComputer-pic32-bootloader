@@ -60,7 +60,7 @@ RM      = /bin/rm
 TARGET  = $(BOARD).hex
 
 CSOURCE = main.c
-CHEADER = main.h BoardConfig.h serial.h util.h
+CHEADER = main.h BoardConfig.h serial.h util.h configs/not_element14.h
 COBJECT = $(OBJ)/main.o
 
 ASOURCE = crt0.S

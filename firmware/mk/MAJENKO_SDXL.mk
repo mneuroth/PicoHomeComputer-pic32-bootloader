@@ -60,7 +60,7 @@ RM      = /bin/rm
 TARGET  = $(BOARD).hex
 
 CSOURCE = main.c usb.c cdcacm.c
-CHEADER = main.h usb.h cdcacm.h BoardConfig.h serial.h util.h
+CHEADER = main.h usb.h cdcacm.h BoardConfig.h serial.h util.h configs/not_majenko.h
 COBJECT = $(OBJ)/main.o $(OBJ)/cdcacm.o $(OBJ)/usb.o
 
 ASOURCE = crt0.S
