@@ -38,7 +38,7 @@
     #pragma config BWP      = OFF                           // Boot flash write protect
     #pragma config PWP      = OFF                           // Program flash write protect
 
-    //*    Debug settings
+    //* Debug settings
     #pragma config ICESEL   = ICS_PGx1                      // ICE/ICD Comm Channel Select
     //#pragma config DEBUG    = ON                          // DO NOT SET THIS CONFIG BIT, it will break debugging
 
@@ -120,7 +120,7 @@
     #pragma config BWP      = OFF                           // Boot flash write protect
     #pragma config PWP      = OFF                           // Program flash write protect
 
-    //*    Debug settings
+    //* Debug settings
     #pragma config ICESEL   = ICS_PGx1                      // ICE/ICD Comm Channel Select
     //#pragma config DEBUG    = ON                          // DO NOT SET THIS CONFIG BIT, it will break debugging
 
@@ -196,7 +196,7 @@
     #pragma config BWP      = OFF                           // Boot flash write protect
     #pragma config PWP      = OFF                           // Program flash write protect
 
-    //*    Debug settings
+    //* Debug settings
     #pragma config ICESEL   = ICS_PGx1                      // ICE/ICD Comm Channel Select
     //#pragma config DEBUG    = ON                          // DO NOT SET THIS CONFIG BIT, it will break debugging
 
@@ -278,7 +278,7 @@
     #pragma config BWP      = OFF                           // Boot flash write protect
     #pragma config PWP      = OFF                           // Program flash write protect
 
-    //*    Debug settings
+    //* Debug settings
     #pragma config ICESEL   = ICS_PGx1                      // ICE/ICD Comm Channel Select
     //#pragma config DEBUG    = ON                          // DO NOT SET THIS CONFIG BIT, it will break debugging
 
@@ -360,7 +360,7 @@
     #pragma config BWP      = OFF                           // Boot flash write protect
     #pragma config PWP      = OFF                           // Program flash write protect
 
-    //*    Debug settings
+    //* Debug settings
     #pragma config ICESEL   = ICS_PGx1                      // ICE/ICD Comm Channel Select
     //#pragma config DEBUG    = ON                          // DO NOT SET THIS CONFIG BIT, it will break debugging
 
@@ -399,7 +399,7 @@
     #define FLASH_PAGE_SIZE             1024                // In bytes
 
 //************************************************************************
-#elif defined(_BOARD_BREADBOARD_)   // UART (Default) version
+#elif defined(_BOARD_BREADBOARD_)
 #define _CONFIG_VALID_
 #if defined(PUT_CONFIG_BITS_HERE)
 
@@ -436,7 +436,7 @@
     #pragma config BWP      = OFF                           // Boot flash write protect
     #pragma config PWP      = OFF                           // Program flash write protect
 
-    //*    Debug settings
+    //* Debug settings
     #pragma config ICESEL   = ICS_PGx1                      // ICE/ICD Comm Channel Select
     //#pragma config DEBUG    = ON                          // DO NOT SET THIS CONFIG BIT, it will break debugging
 
@@ -444,7 +444,7 @@
     #pragma config IOL1WAY  = OFF                           // Allow multiple reconfigurations
 #endif
 
-    // LED1 on RA0
+    // LED on RA0
     #define CAPABILITIES (blCapBootLED | blCapUARTInterface | blCapAutoResetListening | CAPCOMMON)
 
     // LED sense
@@ -471,7 +471,7 @@
     #define FLASH_PAGE_SIZE             1024                // In bytes
 
 //************************************************************************
-#elif defined(_BOARD_BREADBOARD_9600_)   // UART (Default) version
+#elif defined(_BOARD_BREADBOARD_9600_)
 #define _CONFIG_VALID_
 #if defined(PUT_CONFIG_BITS_HERE)
 
@@ -516,7 +516,7 @@
     #pragma config IOL1WAY  = OFF                           // Allow multiple reconfigurations
 #endif
 
-    // LED1 on RA0
+    // LED on RA0
     #define CAPABILITIES (blCapBootLED | blCapUARTInterface | blCapAutoResetListening | CAPCOMMON)
 
     // LED sense
