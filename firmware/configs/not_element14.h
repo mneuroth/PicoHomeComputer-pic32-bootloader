@@ -58,7 +58,7 @@
     #define BLedBit     0
 
     // Other capabilities
-    #define LISTEN_BEFORE_LOAD          3000                // no less than 3 seconds
+    #define LISTEN_BEFORE_LOAD          1000
     #define BOOTLOADER_UART             2                   // avrdude program UART
     #define BAUDRATE                    115200              // avrdude baudrate
     #define UARTMapRX()                 (U2RXR = 0x2)       // RB1 -> U2RX
@@ -203,7 +203,7 @@
     #define BLedBit     0
 
     // Other capabilities
-    #define LISTEN_BEFORE_LOAD          3000                // no less than 3 seconds
+    #define LISTEN_BEFORE_LOAD          1000
     #define BOOTLOADER_UART             2                   // avrdude program UART
     #define BAUDRATE                    115200              // avrdude baudrate
     #define UARTMapRX()                 (U2RXR = 0x2)       // RB1 -> U2RX
@@ -348,7 +348,7 @@
     #define BLedBit     0
 
     // Other capabilities
-    #define LISTEN_BEFORE_LOAD          3000                // no less than 3 seconds
+    #define LISTEN_BEFORE_LOAD          1000
     #define BOOTLOADER_UART             2                   // avrdude program UART
     #define BAUDRATE                    115200              // avrdude baudrate
     #define UARTMapRX()                 (U2RXR = 0x2)       // RB1 -> U2RX
@@ -422,7 +422,7 @@
     #define BLedBit     0
 
     // Other capabilities
-    #define LISTEN_BEFORE_LOAD          3000                // no less than 3 seconds
+    #define LISTEN_BEFORE_LOAD          1000
     #define BOOTLOADER_UART             2                   // avrdude program UART
     #define BAUDRATE                    115200              // avrdude baudrate
     #define UARTMapRX()                 (U2RXR = 0x2)       // RB1 -> U2RX
@@ -496,7 +496,7 @@
     #define BLedBit     0
 
     // Other capabilities
-    #define LISTEN_BEFORE_LOAD          3000                // no less than 3 seconds
+    #define LISTEN_BEFORE_LOAD          1000
 
     #define _CPU_NAME_                  "32MX270F256B"
     #define VEND                        vendElement14
@@ -565,7 +565,7 @@
     #define BLedBit     0
 
     // Other capabilities
-    #define LISTEN_BEFORE_LOAD          3000                // no less than 3 seconds
+    #define LISTEN_BEFORE_LOAD          1000
     #define BOOTLOADER_UART             2                   // avrdude program UART
     #define BAUDRATE                    115200              // avrdude baudrate
     #define UARTMapRX()                 (U2RXR = 0x2)       // RB1 -> U2RX
@@ -638,7 +638,7 @@
     #define BLedBit     0
 
     // Other capabilities
-    #define LISTEN_BEFORE_LOAD          3000                // no less than 3 seconds
+    #define LISTEN_BEFORE_LOAD          1000
     #define BOOTLOADER_UART             2
     #define BAUDRATE                    9600
     #define UARTMapRX()                 (U2RXR = 0x2)       // RB1 -> U2RX

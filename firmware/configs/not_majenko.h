@@ -50,7 +50,7 @@
     #define BLedBit     7
 
     // Other capabilities
-    #define LISTEN_BEFORE_LOAD          3000                // no less than 3 seconds
+    #define LISTEN_BEFORE_LOAD          1000
 
     #define _CPU_NAME_                  "32MX795F512H"
     #define VEND                        vendMajenko
