@@ -129,7 +129,7 @@
 #undef _CONFIG_VALID_
 #include "configs/4d.h"
 #include "configs/digilent.h"
-#include "configs/element14.h"
+// #include "configs/element14.h"
 #include "configs/examples.h"
 #include "configs/fubarino.h"
 #include "configs/majenko.h"
