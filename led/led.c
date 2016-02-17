@@ -90,7 +90,7 @@ init_io(void)
 	AD1PCFG = 0xFFFF;
 
 	/* Reset LED */
-	LATE = 0x00;
+	LATE = 0x80;
 
 	/* LED RE7 O/P */
 	TRISE = 0x7F;
@@ -100,8 +100,8 @@ init_io(void)
 	ANSELB = 0;
 
 	/* Set/Reset O/P */
-	LATA = 0x0000;
-	LATB = 0xFFFF;
+	LATA = 0x0001;
+	LATB = 0x0000;
 
 	/* LED1 RA0 O/P */
 	TRISAbits.TRISA0 = 0;

@@ -76,9 +76,10 @@
 
     #define FLASH_BYTES                 (0x20000-0x1000)    // Leave room 4 pages (for bootloader!)
     #define FLASH_PAGE_SIZE             1024                // In bytes
+#endif
 
 //************************************************************************
-#elif defined(_BOARD_CHIPKIT_DP32_MX270_48_)
+#if defined(_BOARD_CHIPKIT_DP32_MX270_48_)
 #define _CONFIG_VALID_
 #if defined(PUT_CONFIG_BITS_HERE)
 
@@ -153,9 +154,9 @@
 
     #define FLASH_BYTES                 (0x40000-0x1000)    // Leave room 4 pages (for bootloader!)
     #define FLASH_PAGE_SIZE             1024                // In bytes
+#endif
 
 //************************************************************************
-#endif
 
 /*
  * vim: shiftwidth=4 tabstop=4 softtabstop=4 expandtab

@@ -63,6 +63,8 @@
     #define LoadFlashWaitStates()       (CHECON = 2)        // 0 for 0-30Mhz, 1 for 31-60Mhz, 2 for 61-80Mhz
 #endif
 
+//************************************************************************
+
 /*
  * vim: shiftwidth=4 tabstop=4 softtabstop=4 expandtab
  */

@@ -195,7 +195,7 @@
     // LED2 on RB15
     #define CAPABILITIES (blCapBootLED | blCapUARTInterface | blCapAutoResetListening | CAPCOMMON)
 
-    // BTN / LED sense
+    // LED sense
     #define LedOn       High
 
     // Boot LED
@@ -340,7 +340,7 @@
     // LED2 on RB15
     #define CAPABILITIES (blCapBootLED | blCapUARTInterface | blCapAutoResetListening | CAPCOMMON)
 
-    // BTN / LED sense
+    // LED sense
     #define LedOn       High
 
     // Boot LED
