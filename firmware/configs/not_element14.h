@@ -83,7 +83,7 @@
 #define _CONFIG_VALID_
 #if defined(PUT_CONFIG_BITS_HERE)
 
-    /* As chipKIT Pi USB */
+    /* Like chipKIT Pi USB but without BOOTLOAD-EN */
 
     //* Oscillator Settings
     #pragma config FNOSC    = PRIPLL                        // Oscillator selection
@@ -126,25 +126,19 @@
     
 	// LED1 on RA0
 	// LED2 on RB15
-	// Boot button on RB9
-    #define CAPABILITIES (blCapSplitFlashBootloader | blCapUSBInterface | blCapBootLED | blCapProgramButton | blCapVirtualProgramButton | CAPCOMMON)
+    #define CAPABILITIES (blCapBootLED | blCapSplitFlashBootloader | blCapUSBInterface | blCapAutoResetListening | CAPCOMMON)
 
-    // BTN / LED sense
+    // LED sense
     #define LedOn       High
     #define BntOn       Low
 
     // Boot LED
     #define BLedLat     A
     #define BLedBit     0
-
-    // Virtual program button
-    #define VPBntLat    B
-    #define VPBntBit    9
-
-    // Program button
-    #define PBntPort    B
-    #define PBntBit     9
   
+    // Other capabilities
+    #define LISTEN_BEFORE_LOAD          3000                // no less than 3 seconds
+
     #define _CPU_NAME_                  "32MX250F128B"
     #define VEND                        vendElement14
     #define PROD                        prodChipkitPi
@@ -233,7 +227,7 @@
 #define _CONFIG_VALID_
 #if defined(PUT_CONFIG_BITS_HERE)
 
-    /* Like chipKIT Pi USB but with 48MHz oscillator */
+    /* Like chipKIT Pi USB but with 48MHz oscillator and without BOOTLOAD-EN */
 
     //* Oscillator Settings
     #pragma config FNOSC    = PRIPLL                        // Oscillator selection
@@ -276,10 +270,9 @@
 
     // LED1 on RA0
     // LED2 on RB15
-    // Boot button on RB9
-    #define CAPABILITIES (blCapBootLED | blCapSplitFlashBootloader | blCapUSBInterface | blCapProgramButton | blCapVirtualProgramButton | CAPCOMMON)
+    #define CAPABILITIES (blCapBootLED | blCapSplitFlashBootloader | blCapUSBInterface | blCapAutoResetListening | CAPCOMMON)
 
-    // BTN / LED sense
+    // LED sense
     #define LedOn       High
     #define BntOn       Low
 
@@ -287,13 +280,8 @@
     #define BLedLat     A
     #define BLedBit     0
 
-    // Virtual program button
-    #define VPBntLat    B
-    #define VPBntBit    9
-
-    // Program button
-    #define PBntPort    B
-    #define PBntBit     9
+    // Other capabilities
+    #define LISTEN_BEFORE_LOAD          3000                // no less than 3 seconds
 
     #define _CPU_NAME_                  "32MX250F128B"
     #define VEND                        vendElement14
@@ -382,7 +370,7 @@
 #define _CONFIG_VALID_
 #if defined(PUT_CONFIG_BITS_HERE)
 
-    /* Like chipKIT Pi but with MX270 processor and 48MHz oscillator and without BOOTLOAD-EN  */
+    /* Like chipKIT Pi but with MX270 processor and 48MHz oscillator and without BOOTLOAD-EN */
 
     //* Oscillator Settings
     #pragma config FNOSC    = PRIPLL                        // Oscillator selection
