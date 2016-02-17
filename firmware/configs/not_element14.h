@@ -133,7 +133,7 @@
     #define BLedBit     0
 
     // Other capabilities
-    #define LISTEN_BEFORE_LOAD          3000                // no less than 3 seconds
+    #define LISTEN_BEFORE_LOAD          1000
 
     #define _CPU_NAME_                  "32MX250F128B"
     #define VEND                        vendElement14
@@ -278,7 +278,7 @@
     #define BLedBit     0
 
     // Other capabilities
-    #define LISTEN_BEFORE_LOAD          3000                // no less than 3 seconds
+    #define LISTEN_BEFORE_LOAD          1000
 
     #define _CPU_NAME_                  "32MX250F128B"
     #define VEND                        vendElement14
