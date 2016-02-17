@@ -1,6 +1,8 @@
 /* Not Element 14 Boards */
 
-#define     prodChipkitPi		0x0001
+#ifndef prodChipkitPi
+#define prodChipkitPi 0x0001
+#endif
 
 //************************************************************************
 #if defined(_BOARD_CHIPKIT_PI_)
@@ -145,7 +147,7 @@
   
     #define _CPU_NAME_                  "32MX250F128B"
     #define VEND                        vendElement14
-    #define PROD                        prodUnassigned
+    #define PROD                        prodChipkitPi
     #define F_CPU                       40000000UL
     #define F_PBUS                      F_CPU
 
