@@ -140,11 +140,11 @@
 
     // Virtual program button
     #define VPBntLat    B
-    #define VPBntBit    2
+    #define VPBntBit    0
 
     // Program button
     #define PBntPort    B
-    #define PBntBit     2
+    #define PBntBit     0
 
     #define _CPU_NAME_                  "32MX270F256B"
     #define VEND                        vendMNeuroth
