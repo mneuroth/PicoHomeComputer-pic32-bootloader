@@ -31,3 +31,4 @@
 
 #define     prodOpenScope           0x0701
 
+#define     prodPicoHomeComputer    0x0801

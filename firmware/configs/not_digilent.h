@@ -131,24 +131,24 @@
     #define BntOn       High
 
     // Boot LED
-    #define BLedLat     B
-    #define BLedBit     3
+    #define BLedLat     A
+    #define BLedBit     0
 
     // Download LED
     #define DLedLat     B
-    #define DLedBit     2
+    #define DLedBit     4
 
     // Virtual program button
     #define VPBntLat    B
-    #define VPBntBit    4
+    #define VPBntBit    2
 
     // Program button
     #define PBntPort    B
-    #define PBntBit     4
+    #define PBntBit     2
 
     #define _CPU_NAME_                  "32MX270F256B"
-    #define VEND                        vendDigilent
-    #define PROD                        prodChipKITDP32
+    #define VEND                        vendMNeuroth
+    #define PROD                        prodPicoHomeComputer
     #define F_CPU                       48000000UL
     #define F_PBUS                      F_CPU
 

@@ -38,22 +38,22 @@ LKR	= lib/MX270-USB-boot-linkerscript.ld
 HEAP    =
 STACK   =
 
-PIC32   = /opt/pic32-tools
+PIC32   = /mnt/c/Users/micha/AppData/Local/Arduino15/packages/chipKIT/tools/pic32-tools/1.43-pic32gcc
 ifeq (,$(wildcard $(PIC32)))
 $(error $(PIC32) unavailable)
 endif
 
 COMPILE = $(PIC32)/bin/pic32-
 
-AS      = $(COMPILE)as
-LD      = $(COMPILE)ld
-CC      = $(COMPILE)gcc
-AR      = $(COMPILE)ar
-NM      = $(COMPILE)nm
-HX      = $(COMPILE)bin2hex
-STRIP   = $(COMPILE)strip
-OBJCOPY = $(COMPILE)objcopy
-OBJDUMP = $(COMPILE)objdump
+AS      = $(COMPILE)as.exe
+LD      = $(COMPILE)ld.exe
+CC      = $(COMPILE)gcc.exe
+AR      = $(COMPILE)ar.exe
+NM      = $(COMPILE)nm.exe
+HX      = $(COMPILE)bin2hex.exe
+STRIP   = $(COMPILE)strip.exe
+OBJCOPY = $(COMPILE)objcopy.exe
+OBJDUMP = $(COMPILE)objdump.exe
 
 RM      = /bin/rm
 
