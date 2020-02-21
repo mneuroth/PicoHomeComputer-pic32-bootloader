@@ -6,6 +6,9 @@ on the [kewl.org homepage](https://wiki.kewl.org/dokuwiki/projects:chipkit32) an
 for the PicoHomeComputer.
 
 The main processor of the PicoHomeComputer is a PIC32MX270B256 with 64kByte RAM and 256kByte Flash running with 48 MHz.
+To build the bootloader for the PicoHomeComputer the configuration [CHIPKIT_DP32_MX270_48.mk](firmware/mk/CHIPKIT_DP32_MX270_48.mk)
+will be used.
 
-The bootloader activated LED is assigned to PIC32 pin 0 (A0).
-The program button is assigned to PIC32 pin 4 (B0)
+Pinouts:
+* The bootloader activated LED is assigned to PIC32 pin 0 (A0).
+* The program button is assigned to PIC32 pin 4 (B0)
