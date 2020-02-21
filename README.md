@@ -17,6 +17,12 @@ for the [ArduinoIDE](https://www.arduino.cc/en/Main/Software) will be used from 
 To compile under windows (in a bash) the [CHIPKIT_DP32_MX270_48.mk](firmware/mk/CHIPKIT_DP32_MX270_48.mk) was patchted to use
 the absolute path for the gcc compiler tools.
 
+    > bash
+    > cd {project-root}/firmware
+    > make clean
+    > make
+    > mv CHIPKIT_DP32_MX270_48.hex CHIPKIT_PicoHomeComputer_MX270_48.hex
+
 Pinouts:
 * The bootloader activated LED is assigned to PIC32 pin 0 (A0).
 * The program button is assigned to PIC32 pin 4 (B0)
