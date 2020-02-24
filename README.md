@@ -24,7 +24,7 @@ the absolute path for the gcc compiler tools.
     > mv CHIPKIT_DP32_MX270_48.hex CHIPKIT_PicoHomeComputer_MX270_48.hex
 
 Pinouts:
-* The bootloader activated LED is assigned to PIC32 pin 0 (A0).
+* The bootloader activated LED is assigned to PIC32 pin 2 (A0).
 * The program button is assigned to PIC32 pin 4 (B0)
 
 A binary hex file to flash the PIC32 with a Pickit3 programme is available [here](firmware/bootloaders-hex/CHIPKIT_PicoHomeComputer_MX270_48.hex).
