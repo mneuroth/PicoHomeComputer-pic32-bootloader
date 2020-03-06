@@ -145,7 +145,7 @@ int main()  // we're called directly by Crt0.S
 
     // 2. The virtual program button tells us to wait indefinitly for an upload
     //      but only if this is not from a real reset of the processor and must come as a software reset.
-    fLoadProgramFromFlash &= !(fLoadFromAVRDudeViaVirtualProgramButton && !RCONbits.POR && !RCONbits.EXTR && RCONbits.SWR);
+    //fLoadProgramFromFlash &= !(fLoadFromAVRDudeViaVirtualProgramButton && !RCONbits.POR && !RCONbits.EXTR && RCONbits.SWR);
 
     // 3. Otherwise we will either load the program immediately, or wait our timeout time to load
     // this will happen in the for loop below
